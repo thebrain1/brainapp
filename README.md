@@ -1,3 +1,13 @@
+# brainapp
+
+
+**Haushaltsbuch** als **Webanwendung**
+
+Entstanden als studentische Projektarbeit der ***Hochschule für Telekommunikation Leipzig (HfTL)***.
+
+``bainapp`` verwendet das **Symfony 2 Framework**
+
+
 Symfony Standard Edition
 ========================
 
