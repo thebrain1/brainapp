@@ -1,14 +1,17 @@
 # brainapp - Das Web-Haushaltsbuch
 
-Entstanden als studentische Projektarbeit an der [**Hochschule fÃ¼r Telekommunikation Leipzig (HfTL)**](http://www.hft-leipzig.de).
+Entstanden als studentische Projektarbeit an der [**Hochschule für Telekommunikation Leipzig (HfTL)**](http://www.hft-leipzig.de).
 
 <hr>
 
 Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://symfony.com/) und folgende zusÃ¤tzliche Bundles:
  
   * [**FOSUserBundle**](https://github.com/FriendsOfSymfony/FOSUserBundle) - Benutzerverwaltung mit FriendsOfSymfonyUserBundle
-
-## Vorraussetzungen
+  * [**leafo/lessphp**](https://github.com/leafo/lessphp) - Assetic Filter für Kompilierung von ``*.less``-Dateien
+  * [**twitter/bootstrap**](http://getbootstrap.com/) - Front-end Framework Bootstrap 3 
+  * [**components/jquery**](https://github.com/components/jquery) - JQuery Bibliotheken
+  * [**components/font-awesome**](https://github.com/components/font-awesome) - Font Awesome Bibliothek
+## Voraussetzungen
 
  * Webserver
  * PHP >=5.3
@@ -35,9 +38,9 @@ installiert alle notwendigen Pakete und aktualisiert Kernel.
 
 ### Parameter.yml anpassen
 
-Bei der Installation mittels ``composer`` wird die ``parameters.yml`` automatisch angelegt und die Werte abgefragt. Naträglich können diese unter ``app/config/parameters.yml`` angepasst werden.  
+Bei der Installation mittels ``composer`` wird die ``parameters.yml`` automatisch angelegt und die Werte abgefragt. Nachträglich können diese unter ``app/config/parameters.yml`` angepasst werden.  
 
-Die Parameter **müssen** auf entsprechend der Laufzeitumgebung angepasst werden!
+Die Parameter **müssen** entsprechend der Laufzeitumgebung angepasst werden!
 Sollte die ``parameters.yml`` nicht vorhanden sein, ist eine Beispieldatei unter ``app/config/parameters.yml.dist`` abgelegt.
 
 	# app/config/parameters.yml
