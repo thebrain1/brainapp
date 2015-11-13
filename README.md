@@ -10,6 +10,7 @@ Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://
   * [**leafo/lessphp**](https://github.com/leafo/lessphp) - Assetic Filter für Kompilierung von ``*.less``-Dateien
   * [**twitter/bootstrap**](http://getbootstrap.com/) - Front-end Framework Bootstrap 3 
   * [**components/jquery**](https://github.com/components/jquery) - JQuery Bibliotheken
+  * [**components/jqueryui**](https://github.com/components/jqueryui) JQueryUI Bibliothek
   * [**components/font-awesome**](https://github.com/components/font-awesome) - Font Awesome Bibliothek
 ## Voraussetzungen
 
