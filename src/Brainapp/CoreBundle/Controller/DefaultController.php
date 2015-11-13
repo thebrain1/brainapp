@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('BrainappTemplateBundle:Default:index.html.twig');
+        return $this->render('BrainappCoreBundle:Default:index.html.twig');
     }
 }
