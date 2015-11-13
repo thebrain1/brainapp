@@ -2,7 +2,9 @@
 
 namespace Brainapp\CoreBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * User
@@ -10,32 +12,22 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="core_user")
  * @ORM\Entity(repositoryClass="Brainapp\CoreBundle\Entity\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected  $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="surname", type="string", length=255)
-     */
-    private $surname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="givenname", type="string", length=255)
-     */
-    private $givenname;
-
-
+    public function __construct()
+    {
+    	parent::__construct();
+    }
+    
     /**
      * Get id
      *
@@ -44,54 +36,6 @@ class User
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set surname
-     *
-     * @param string $surname
-     *
-     * @return User
-     */
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
-
-        return $this;
-    }
-
-    /**
-     * Get surname
-     *
-     * @return string
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * Set givenname
-     *
-     * @param string $givenname
-     *
-     * @return User
-     */
-    public function setGivenname($givenname)
-    {
-        $this->givenname = $givenname;
-
-        return $this;
-    }
-
-    /**
-     * Get givenname
-     *
-     * @return string
-     */
-    public function getGivenname()
-    {
-        return $this->givenname;
     }
 }
 

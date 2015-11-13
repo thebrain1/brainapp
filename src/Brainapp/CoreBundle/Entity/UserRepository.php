@@ -2,6 +2,7 @@
 
 namespace Brainapp\CoreBundle\Entity;
 
+use Doctrine\ORM\EntityRepository;
 /**
  * UserRepository
  *

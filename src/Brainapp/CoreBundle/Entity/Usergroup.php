@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Usergroup
  *
- * @ORM\Table()
+ * @ORM\Table(name="core_usergroup")
  * @ORM\Entity(repositoryClass="Brainapp\CoreBundle\Entity\UsergroupRepository")
  */
 class Usergroup

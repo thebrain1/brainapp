@@ -1,3 +1,6 @@
 brainapp_core_homepage:
     path:     /hello/{name}
-    defaults: { _controller: BrainappCoreBundle:Default:index }
+    defaults: { _controller: "BrainappCoreBundle:Default:index" }
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
