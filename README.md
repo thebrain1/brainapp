@@ -7,6 +7,9 @@ Entstanden als studentische Projektarbeit der ***Hochschule für Telekommunikati
 
 **brainapp** verwendet das **Symfony 2 Framework**
 
+Folgende zurätzliche Bundles werden von der Webanwendung verwendet:
+ 
+  * [**FOSUserBundle**][14] - Benutzerverwaltung mit FOSUserBundle
 
 Symfony Standard Edition
 ========================
@@ -80,3 +83,4 @@ Enjoy!
 [11]: https://symfony.com/doc/2.7/cookbook/logging/monolog.html
 [12]: https://symfony.com/doc/2.7/cookbook/assetic/asset_management.html
 [13]: https://symfony.com/doc/2.7/bundles/SensioGeneratorBundle/index.html
+[14]: https://github.com/FriendsOfSymfony/FOSUserBundle

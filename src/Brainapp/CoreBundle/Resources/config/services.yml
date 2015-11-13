@@ -1,0 +1,4 @@
+services:
+#    brainapp_core.example:
+#        class: Brainapp\CoreBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
