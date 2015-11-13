@@ -41,7 +41,6 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -54,6 +53,11 @@ assetic:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js" 
                 - "%kernel.root_dir%/../vendor/twitter/bootstrap/dist/js/bootstrap.js" 
             output: "js/kernel_js"
+        
+        jqueryui_js:
+            inputs:
+                - "%kernel.root_dir%/../vendor/components/jqueryui/jquery-ui.js" 
+            output: "js/jquery-ui"
              
         kernel_css:
             inputs:

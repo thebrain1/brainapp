@@ -21,9 +21,10 @@
 		"incenteev/composer-parameter-handler" : "~2.0",
 		"friendsofsymfony/user-bundle" : "~2.0@dev",
 		"twitter/bootstrap" : "3.*",
-        "components/jquery" : "1.11.1",
-        "components/font-awesome" : "4.2.0",
-        "leafo/lessphp" : "dev-master"
+		"components/jquery" : "^2.0",
+		"components/jqueryui":   "^1.11",
+		"components/font-awesome" : "4.2.0",
+		"leafo/lessphp" : "dev-master"
 	},
 	"require-dev" : {
 		"sensio/generator-bundle" : "~2.3"
