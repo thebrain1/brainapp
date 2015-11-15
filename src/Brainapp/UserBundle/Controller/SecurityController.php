@@ -12,7 +12,7 @@ class SecurityController extends BaseController
     /**
      * Setzt neuer Template für Login
      * 
-     * @Route("/login")
+     * @Route("/login", name="login")
      * @Template()
      */
 	public function loginAction(Request $request)
