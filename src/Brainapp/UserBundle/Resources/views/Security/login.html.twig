@@ -1,0 +1,44 @@
+{% extends "BrainappCoreBundle:Template:template_default.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{% stylesheets 'bundles/brainappcore/css/login.css' filter="cssrewrite" %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock  %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<section id="login">
+	
+	<header>
+		<h1>BRAINAPP</h1>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
+	</header>
+	<div class="clearfix"></div>
+	
+	{% if error %}
+	    <div class="alert alert-danger alert-dismissible" role="alert">
+	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    	<strong>Oh nein!</strong> {{ error.messageKey|trans(error.messageData, 'security') }}
+    	</div>
+	{% endif %}
+	
+	<form id="box-login" class="box tile animated active" action="{{ path("fos_user_security_check") }}" method="post">
+		<h2 class="login-title">Login</h2>
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+		    
+		    <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" class="login-control" />
+		    <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" class="login-control" />
+		    <input type="submit" id="submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn" />
+		    
+		    <small>
+		    	<a href="" data-switch="box-register" class="box-switcher">Noch keinen Account?</a> oder
+		    	<a href="" data-switch="box-reset" class="box-switcher">Passwort vergessen?</a>
+	    	</small>
+	</form>
+</section>
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    brainapp_user.example:
+#        class: Brainapp\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

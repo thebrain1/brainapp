@@ -4,7 +4,7 @@ Entstanden als studentische Projektarbeit an der [**Hochschule für Telekommunik
 
 <hr>
 
-Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://symfony.com/) und folgende zusÃ¤tzliche Bundles:
+Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://symfony.com/) und folgende zusätzliche Bundles:
  
   * [**FOSUserBundle**](https://github.com/FriendsOfSymfony/FOSUserBundle) - Benutzerverwaltung mit FriendsOfSymfonyUserBundle
   * [**leafo/lessphp**](https://github.com/leafo/lessphp) - Assetic Filter für Kompilierung von ``*.less``-Dateien
@@ -12,6 +12,11 @@ Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://
   * [**components/jquery**](https://github.com/components/jquery) - JQuery Bibliotheken
   * [**components/jqueryui**](https://github.com/components/jqueryui) JQueryUI Bibliothek
   * [**components/font-awesome**](https://github.com/components/font-awesome) - Font Awesome Bibliothek
+
+### Demo
+
+[**Live Demo**](http://brainapp.reu-network.de) 
+
 ## Voraussetzungen
 
  * Webserver

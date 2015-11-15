@@ -1,6 +1,6 @@
 <?php
 
-namespace Brainapp\CoreBundle\Entity;
+namespace Brainapp\UserBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 /**

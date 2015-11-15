@@ -1,14 +1,14 @@
 <?php
 
-namespace Brainapp\CoreBundle\Entity;
+namespace Brainapp\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Usergroup
  *
- * @ORM\Table(name="core_usergroup")
- * @ORM\Entity(repositoryClass="Brainapp\CoreBundle\Entity\UsergroupRepository")
+ * @ORM\Table(name="tbl_group", options={"comment":"Tabelle Benutzergruppen"})
+ * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\UsergroupRepository")
  */
 class Usergroup
 {
@@ -24,7 +24,7 @@ class Usergroup
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, options={"comment":"Gruppenbezeichnung"})
      */
     private $name;
 

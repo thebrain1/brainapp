@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+body, a, input, .help-block {
+    color: #fff;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "open-sans-light",sans-serif;
+    font-weight: normal;
+}
+h1, h2, h3 {
+    margin-top: 10px;
+}
+h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 60%;
+}

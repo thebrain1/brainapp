@@ -1,0 +1,7 @@
+brainapp_user_security:
+    resource: "@BrainappUserBundle/Controller/SecurityController.php"
+    type:     annotation 
+
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
