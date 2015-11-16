@@ -5,9 +5,8 @@ namespace Brainapp\UserBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
- * User
+ * User Entity
  *
  * @ORM\Table(name="tbl_user", options={"comment":"Tabelle Benutzer"})
  * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\UserRepository")
