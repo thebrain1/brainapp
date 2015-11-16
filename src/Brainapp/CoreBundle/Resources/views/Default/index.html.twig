@@ -29,13 +29,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
+                        <a href="#contact">Contact</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
                     </li>
                     <li class="">
                         <a href="{{ path('login') }}">Login</a>
@@ -47,7 +44,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
+	{# HEADER #}
     <header>
         <div class="container">
             <div class="row">
@@ -63,20 +60,16 @@
         </div>
     </header>
 
-
-    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
+                    <h2>Contact Us</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     <form novalidate="" id="contactForm" name="sentMessage">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -87,21 +80,21 @@
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Email Address</label>
+                                <label>E-Mail Adresse</label>
                                 <input type="email" data-validation-required-message="Please enter your email address." required="" id="email" placeholder="Email Address" class="form-control">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+{#                         <div class="row control-group">#}
+{#                             <div class="form-group col-xs-12 floating-label-form-group controls">#}
+{#                                 <label>Phone Number</label>#}
+{#                                 <input type="tel" data-validation-required-message="Please enter your phone number." required="" id="phone" placeholder="Phone Number" class="form-control">#}
+{#                                 <p class="help-block text-danger"></p>#}
+{#                             </div>#}
+{#                         </div>#}
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Phone Number</label>
-                                <input type="tel" data-validation-required-message="Please enter your phone number." required="" id="phone" placeholder="Phone Number" class="form-control">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Message</label>
+                                <label>Nachricht</label>
                                 <textarea data-validation-required-message="Please enter a message." required="" id="message" placeholder="Message" class="form-control" rows="5"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -110,7 +103,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button class="btn btn-success btn-lg" type="submit">Send</button>
+                                <button class="btn btn-success btn-lg" type="submit">Senden</button>
                             </div>
                         </div>
                     </form>
@@ -123,54 +116,53 @@
     <section id="about" class="success">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-sm-12 text-center">
                     <h2>About</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
+                <div class="col-lg-4 col-lg-offset-2 col-sm-6">
                 	<p><strong>Brainapp</strong> entstand im Rahmer einer studentischen Projektarbeit der Hochschule für Telekommunikation Leipzig (HfTL) durch die Studentengruppe KMI14/WI14.</p>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-sm-6">
                 	<img alt="" src="{{ asset('bundles/brainappcore/images/hftl-logo-n.png') }}" class="img-responsive">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+	{# FOOTER #}
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <h3>Projektgruppe KMI14/WI14</h3>
+                        <p>Hochschule für Telekommunikation Leipzig (HfTL)</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
+{#                         <h3>Around the Web</h3>#}
+{#                         <ul class="list-inline">#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-facebook"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-google-plus"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-twitter"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-linkedin"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-dribbble"></i></a>#}
+{#                             </li>#}
+{#                         </ul>#}
                     </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    <div class="footer-col col-md-3 col-md-offset-1">
+                    	<img alt="" src="{{ asset('bundles/brainappcore/images/hftl-logo-n.png') }}" class="img-responsive">
                     </div>
                 </div>
             </div>
@@ -179,7 +171,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2014
+                        Copyright &copy; Brainapp 2015
                     </div>
                 </div>
             </div>
