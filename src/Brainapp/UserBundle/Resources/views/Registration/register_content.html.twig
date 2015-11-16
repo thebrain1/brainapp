@@ -1,0 +1,13 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form id="box-register" class="box animated tile" action="{{ path('fos_user_registration_register') }}">
+	<h2 class="box">Register</h2>
+	<input type="text" placeholder="Full Name" class="login-control m-b-10">
+	<input type="text" placeholder="Username" class="login-control m-b-10">
+	<input type="email" placeholder="Email Address" class="login-control m-b-10">
+	<input type="password" placeholder="Password" class="login-control m-b-10">
+	<input type="password" placeholder="Confirm Password" class="login-control m-b-20">
+		
+	<button class="btn btn-sm m-r-5">{{ 'registration.submit'|trans }}</button>
+	<small><a href="" data-switch="box-login" class="box-switcher">Already have an Account?</a></small>
+</form>
