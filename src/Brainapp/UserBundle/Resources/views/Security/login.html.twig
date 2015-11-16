@@ -9,7 +9,7 @@
     {% endstylesheets %}
 {% endblock  %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Login - {{ parent() }}{% endblock %}
 
 {% block header %}{% endblock %}
 
@@ -30,17 +30,36 @@
 	{% endif %}
 	
 	<form id="box-login" class="box tile animated active" action="{{ path("fos_user_security_check") }}" method="post">
-		<h2 class="login-title">Login</h2>
-			<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-		    
-		    <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" class="login-control" />
-		    <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" class="login-control" />
-		    <input type="submit" id="submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn" />
-		    
-		    <small>
-		    	<a href="" data-switch="box-register" class="box-switcher">Noch keinen Account?</a> oder
-		    	<a href="" data-switch="box-reset" class="box-switcher">Passwort vergessen?</a>
-	    	</small>
+		<h2 class="box-title">Login</h2>
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+		
+		<input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" class="login-control" />
+		<input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" class="login-control" />
+		<input type="submit" id="submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn" />
+	    <small>
+	    	<a href="" data-switch="box-register" class="box-switcher">Noch keinen Account?</a> oder
+	    	<a href="" data-switch="box-reset" class="box-switcher">Passwort vergessen?</a>
+    	</small>
+	</form>
+	
+	<form id="box-register" class="box animated tile">
+		<h2 class="box">Register</h2>
+		<input type="text" placeholder="Full Name" class="login-control m-b-10">
+		<input type="text" placeholder="Username" class="login-control m-b-10">
+		<input type="email" placeholder="Email Address" class="login-control m-b-10">
+		<input type="password" placeholder="Password" class="login-control m-b-10">
+		<input type="password" placeholder="Confirm Password" class="login-control m-b-20">
+		
+		<button class="btn btn-sm m-r-5">Register</button>
+		<small><a href="" data-switch="box-login" class="box-switcher">Already have an Account?</a></small>
+	</form>
+	
+	<form id="box-reset" class="box animated tile">
+		<h2 class="box-title">Reset Password</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
+		<input type="email" placeholder="Email Address" class="login-control m-b-20">
+		<button class="btn btn-sm m-r-5">Reset Password</button>
+		<small><a href="" data-switch="box-login" class="box-switcher">Already have an Account?</a></small>
 	</form>
 </section>
 {% endblock %}
