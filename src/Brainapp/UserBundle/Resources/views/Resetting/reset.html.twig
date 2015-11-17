@@ -1,0 +1,29 @@
+{% extends "BrainappCoreBundle:Template:template_default.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{% stylesheets 'bundles/brainappcore/css/login.css' filter="cssrewrite" %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock  %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<section id="reset">
+	<header>
+		<h1>BRAINAPP</h1>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
+	</header>
+	<div class="clearfix"></div>
+ {% if error %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    	<strong>Oh nein!</strong> {{ error.messageKey|trans(error.messageData, 'security') }}
+	</div>
+ {% endif %}
+	{% include 'BrainappUserBundle:Resetting:reset_content.html.twig' %}
+</section>
+{% endblock %}

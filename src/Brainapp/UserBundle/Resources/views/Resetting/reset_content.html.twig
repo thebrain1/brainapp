@@ -1,7 +1,9 @@
-<form id="box-reset" class="box animated tile">
-	<h2 class="box-title">Reset Password</h2>
+<form id="box-reset" action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="box animated tile">
+	<h2 class="box-title">Passwort zurücksetzen</h2>
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
+    {{ form_widget(form) }}
 	<input type="email" placeholder="Email Address" class="login-control m-b-20">
-	<button class="btn btn-sm m-r-5">Reset Password</button>
+	<button class="btn btn-sm m-r-5">{{ 'resetting.reset.submit'|trans }}</button>
 	<small><a href="" data-switch="box-login" class="box-switcher">Already have an Account?</a></small>
 </form>
+

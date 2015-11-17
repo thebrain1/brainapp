@@ -4,11 +4,13 @@
 	<h2 class="box-title">Login</h2>
 	<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 	
-	<input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" class="login-control" />
-	<input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" class="login-control" />
+	<input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Benutzername oder E-Mail-Adresse" required="required" class="login-control" />
+	<input type="password" id="password" name="_password" placeholder="Passwort" required="required" class="login-control" />
 	<input type="submit" id="submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn" />
 	<small>
-		<a href="" data-switch="box-register" class="box-switcher">Noch keinen Account?</a> oder
-	    <a href="" data-switch="box-reset" class="box-switcher">Passwort vergessen?</a>
+		<a href="{{ path('register') }}">Noch keinen Account?</a> oder
+{# 		<a href="" data-switch="box-register" class="box-switcher">Noch keinen Account?</a> oder#}
+	    <a href="{{ path('resetting_request') }}">Passwort vergessen?</a>
+{# 	    <a href="" data-switch="box-reset" class="box-switcher">Passwort vergessen?</a>#}
     </small>
 </form>

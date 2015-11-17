@@ -13,20 +13,13 @@
 
 {% block content %}
 <section id="login">
-	
 	<header>
 		<h1>BRAINAPP</h1>
 	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
 	</header>
 	<div class="clearfix"></div>
- {% if error %}
-    <div class="alert alert-danger alert-dismissible" role="alert">
-    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    	<strong>Oh nein!</strong> {{ error.messageKey|trans(error.messageData, 'security') }}
-	</div>
- {% endif %}
-	{% include 'BrainappUserBundle:Security:login_content.html.twig' %}
-	
-{# 	{% include 'BrainappUserBundle:Resetting:reset_content.html.twig' %}#}
+ 	{# include content #}
+	{% include 'BrainappUserBundle:Registration:register_content.html.twig' %}
 </section>
 {% endblock %}
+

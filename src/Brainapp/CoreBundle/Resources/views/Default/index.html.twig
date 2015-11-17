@@ -29,10 +29,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="{{ path('register') }}">Registrieren</a>
                     </li>
                     <li class="">
                         <a href="{{ path('login') }}">Login</a>
@@ -60,86 +57,14 @@
         </div>
     </header>
 
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Contact Us</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <form novalidate="" id="contactForm" name="sentMessage">
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Name</label>
-                                <input type="text" data-validation-required-message="Please enter your name." required="" id="name" placeholder="Name" class="form-control">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>E-Mail Adresse</label>
-                                <input type="email" data-validation-required-message="Please enter your email address." required="" id="email" placeholder="Email Address" class="form-control">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-{#                         <div class="row control-group">#}
-{#                             <div class="form-group col-xs-12 floating-label-form-group controls">#}
-{#                                 <label>Phone Number</label>#}
-{#                                 <input type="tel" data-validation-required-message="Please enter your phone number." required="" id="phone" placeholder="Phone Number" class="form-control">#}
-{#                                 <p class="help-block text-danger"></p>#}
-{#                             </div>#}
-{#                         </div>#}
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Nachricht</label>
-                                <textarea data-validation-required-message="Please enter a message." required="" id="message" placeholder="Message" class="form-control" rows="5"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <br>
-                        <div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button class="btn btn-success btn-lg" type="submit">Senden</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="success">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2 col-sm-6">
-                	<p><strong>Brainapp</strong> entstand im Rahmer einer studentischen Projektarbeit der Hochschule für Telekommunikation Leipzig (HfTL) durch die Studentengruppe KMI14/WI14.</p>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                	<img alt="" src="{{ asset('bundles/brainappcore/images/hftl-logo-n.png') }}" class="img-responsive">
-                </div>
-            </div>
-        </div>
-    </section>
-
 	{# FOOTER #}
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-4">
+                    <div class="footer col-md-8">
                         <h3>Projektgruppe KMI14/WI14</h3>
-                        <p>Hochschule für Telekommunikation Leipzig (HfTL)</p>
+                        <p><strong>Brainapp</strong> entstand im Rahmer einer studentischen Projektarbeit der Hochschule für Telekommunikation Leipzig (HfTL) durch die Studentengruppe KMI14/WI14</p>
                     </div>
                     <div class="footer-col col-md-4">
 {#                         <h3>Around the Web</h3>#}

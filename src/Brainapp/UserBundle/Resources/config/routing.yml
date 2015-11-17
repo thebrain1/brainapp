@@ -2,6 +2,14 @@ brainapp_user_security:
     resource: "@BrainappUserBundle/Controller/SecurityController.php"
     type:     annotation 
 
+brainapp_user_register:
+    resource: "@BrainappUserBundle/Controller/RegistrationController.php"
+    type:     annotation 
+
+brainapp_user_resetting:
+    resource: "@BrainappUserBundle/Controller/ResettingController.php"
+    type:     annotation 
+
     
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

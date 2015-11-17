@@ -1,11 +1,12 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<form id="box-register" class="box animated tile" action="{{ path('fos_user_registration_register') }}">
+<form id="box-register" class="box animated tile active" action="{{ path('fos_user_registration_register') }}">
 	<h2 class="box-title">Registrieren</h2>
 	<input type="text" placeholder="Benutzername" class="login-control m-b-10">
 	<input type="email" placeholder="E-Mail Adresse" class="login-control m-b-10">
 	<input type="password" placeholder="Passwort" class="login-control m-b-10">
 	<input type="password" placeholder="Passwort wiederholen" class="login-control m-b-20">
 	<button class="btn btn-sm m-r-5">{{ 'registration.submit'|trans }}</button>
-	<small><a href="" data-switch="box-login" class="box-switcher">Account bereits vorhanden?</a></small>
+{# 	<small><a href="" data-switch="box-login" class="box-switcher">Account bereits vorhanden?</a></small>#}
+	<small><a href="{{ path('login') }}">Account bereits vorhanden?</a></small>
 </form>
