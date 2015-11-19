@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>.:: {% block title %}Brainapp{% endblock %} ::.</title>
-        {% stylesheets '@kernel_css' filter="cssrewrite" %}
+        {% stylesheets '@kernel_css' %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     	{% endstylesheets %}
         {% block stylesheets %}{% endblock %}
