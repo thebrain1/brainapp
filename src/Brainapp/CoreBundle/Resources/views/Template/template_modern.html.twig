@@ -2,23 +2,22 @@
 
 {% block stylesheets %}
 	{{ parent() }}
-	{% stylesheets 'bundles/brainappcore/css/template.css'
-				   'bundles/brainappcore/css/form.css'
+	{% stylesheets 'bundles/brainappcore/css/modern_*'
 				   'bundles/brainappcore/css/general.css' filter="cssrewrite" %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
 {% endblock  %}
 
 {% block body %}
-
-{% block header %}
-{% include 'BrainappCoreBundle:Template/Navbar:header_default.html.twig' %}
-{% endblock header %}
-
-
-{% block content %}
-{% endblock content %}
-
+<div id="skin-blur-violate">
+	{% block header %}
+	{% include 'BrainappCoreBundle:Template/Navbar:header_modern.html.twig' %}
+	{% endblock header %}
+	
+	
+	{% block content %}
+	{% endblock content %}
+</div>
 {% endblock body %}
 
 {% block javascripts %}

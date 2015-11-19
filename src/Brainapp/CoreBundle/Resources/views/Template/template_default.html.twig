@@ -2,8 +2,8 @@
 
 {% block stylesheets %}
 	{{ parent() }}
-	{% stylesheets 'bundles/brainappcore/css/template.css'
-				   'bundles/brainappcore/css/form.css'
+	{% stylesheets 
+				   'bundles/brainappcore/css/default_*'
 				   'bundles/brainappcore/css/general.css' filter="cssrewrite" %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -11,14 +11,66 @@
 
 {% block body %}
 
-{% block header %}
-{% include 'BrainappCoreBundle:Template/Navbar:header_default.html.twig' %}
-{% endblock header %}
+{% block navbar %} {# NAVBAR #}
+{% include 'BrainappCoreBundle:Template/Navbar:navbar_default.html.twig' %}
+{% endblock navbar %}
 
 
 {% block content %}
 {% endblock content %}
 
+{# FOOTER #}
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer col-md-8">
+                        <h3>Projektgruppe KMI14/WI14</h3>
+                        <p><strong>Brainapp</strong> entstand im Rahmer einer studentischen Projektarbeit der Hochschule für Telekommunikation Leipzig (HfTL) durch die Studentengruppe KMI14/WI14</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+{#                         <h3>Around the Web</h3>#}
+{#                         <ul class="list-inline">#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-facebook"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-google-plus"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-twitter"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-linkedin"></i></a>#}
+{#                             </li>#}
+{#                             <li>#}
+{#                                 <a class="btn-social btn-outline" href="#"><i class="fa fa-fw fa-dribbble"></i></a>#}
+{#                             </li>#}
+{#                         </ul>#}
+                    </div>
+                    <div class="footer-col col-md-3 col-md-offset-1">
+                    	<img alt="" src="{{ asset('bundles/brainappcore/images/hftl-logo-n.png') }}" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Brainapp 2015
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a href="#page-top" class="btn btn-primary">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
 {% endblock body %}
 
 {% block javascripts %}

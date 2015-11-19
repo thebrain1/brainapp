@@ -1,11 +1,41 @@
 @CHARSET "UTF-8";
 
-body, a, input, .help-block {
-    color: #fff;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+@font-face {
+    font-family: "open-sans-semibold";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Semibold-webfont.woff") format("woff"), url("../fonts/OpenSans-Semibold-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Semibold-webfont.svg#open_sanssemibold") format("svg");
+}
+@font-face {
+    font-family: "open-sans-light";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/OpenSans-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Light-webfont.woff") format("woff"), url("../fonts/OpenSans-Light-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Light-webfont.svg#open_sanslight") format("svg");
+}
+@font-face {
+    font-family: "open-sans-regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Regular-webfont.woff") format("woff"), url("../fonts/OpenSans-Regular-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Regular-webfont.svg#open_sansregular") format("svg");
+}
+@font-face {
+    font-family: "ios7-icon";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/icons/icon.woff") format("woff"), url("../fonts/icons/icon.ttf") format("truetype"), url("../fonts/icons/icon.svg#open_sansregular") format("svg");
+}
+:focus, *:active {
+    outline: medium none !important;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-family: "open-sans-light",Arial,Helvetica,sans-serif;
+    font-size: 14px;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: "open-sans-light",sans-serif;
+    font-family: inherit;
     font-weight: normal;
 }
 h1, h2, h3 {
@@ -14,4 +44,12 @@ h1, h2, h3 {
 h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     color: rgba(255, 255, 255, 0.5);
     font-size: 60%;
+}
+label, strong{
+	font-weight: normal;
+    font-family: "open-sans-semibold",Arial,Helvetica,sans-serif;
+}
+
+.radio label, .checkbox label {
+    font-family: "open-sans-regular",Arial,Helvetica,sans-serif;
 }
