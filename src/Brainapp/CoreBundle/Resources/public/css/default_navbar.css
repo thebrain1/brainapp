@@ -16,6 +16,9 @@
         font-size: 1.5em;
     }
 }
+.navbar, .navbar-brand, .navbar a {
+    text-shadow: none !important;
+}
 .navbar {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
