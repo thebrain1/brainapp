@@ -1,0 +1,49 @@
+<div id="login-overlay" class="col-xs-8 col-xs-offset-2" style="margin-top: 0;">
+	<div class="modal-content">
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="well">
+						<form id="form-login" action="{{ path("fos_user_security_check") }}" method="post" novalidate="novalidate">
+							<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+							<div class="form-group">
+								<label for="username" class="control-label">Benutzername/E-Mail Adresse</label>
+								<input type="text" class="form-control" id="username" name="_username" {% if last_username is defined %}value="{{ last_username }}" {% endif %}placeholder="Benutzername oder E-Mail-Adresse" title="Geben Sie Ihren Benutzernamen an" required="required">
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group">
+								<label for="password" class="control-label">Passwort</label>
+								<input type="password" class="form-control" id="password" name="_password" placeholder="Passwort" value="" required="required" title="Geben Sie Ihr Passwort an">
+								<span class="help-block"></span>
+							</div>
+							<div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="remember" id="remember"> Anmeldung speichern
+								</label>
+								<p class="help-block"></p>
+							</div>
+							<button type="submit" id="submit" name="_submit" class="btn btn-success btn-block btn-lg">Login</button>
+							<a href="{{ path('resetting_request') }}" class="btn btn-default btn-block">Passwort vergessen?</a>
+						</form>
+					</div>
+				</div>
+				
+				<div class="col-xs-6">
+					<p class="lead">Jetzt <span class="text-success">KOSTENLOS</span> registrieren</p>
+					<ul class="list-unstyled" style="line-height: 2">
+						<li><span class="fa fa-check text-success"></span> See all your orders</li>
+						<li><span class="fa fa-check text-success"></span> Fast re-order</li>
+						<li><span class="fa fa-check text-success"></span> Save your favorites</li>
+						<li><span class="fa fa-check text-success"></span> Fast checkout</li>
+						<li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
+						<li><a href="/read-more/"><u>Mehr erfahren...</u></a></li>
+					</ul>
+					
+					<p><a href="/new-customer/" class="btn btn-info btn-block">Ja, ich möchte mich jetzt registrieren!</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

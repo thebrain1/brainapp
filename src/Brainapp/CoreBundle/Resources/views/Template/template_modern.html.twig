@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{% stylesheets 'bundles/brainappcore/css/template.css'
+				   'bundles/brainappcore/css/form.css'
+				   'bundles/brainappcore/css/general.css' filter="cssrewrite" %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock  %}
+
+{% block body %}
+
+{% block header %}
+{% include 'BrainappCoreBundle:Template/Navbar:header_default.html.twig' %}
+{% endblock header %}
+
+
+{% block content %}
+{% endblock content %}
+
+{% endblock body %}
+
+{% block javascripts %}
+{{ parent() }}
+{% javascripts 'bundles/brainappcore/js/functions.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+    
