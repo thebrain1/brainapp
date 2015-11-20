@@ -53,12 +53,12 @@ assetic:
             inputs:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js" 
                 - "%kernel.root_dir%/../vendor/twitter/bootstrap/dist/js/bootstrap.js" 
-            output: "js/kernel_js"
+            output: "js/kernel.js"
         
         jqueryui_js:
             inputs:
                 - "%kernel.root_dir%/../vendor/components/jqueryui/jquery-ui.js" 
-            output: "js/jquery-ui"
+            output: "js/jquery-ui.js"
              
         kernel_css:
             inputs:
@@ -101,6 +101,9 @@ assetic:
         font-awesome-woff:
             inputs: '%kernel.root_dir%/../vendor/components/font-awesome/fonts/fontawesome-webfont.woff'
             output: 'fonts/fontawesome-webfont.woff'
+        font-awesome-woff2:
+            inputs: '%kernel.root_dir%/../vendor/components/font-awesome/fonts/fontawesome-webfont.woff2'
+            output: 'fonts/fontawesome-webfont.woff2'
 
 # Doctrine Configuration
 doctrine:
