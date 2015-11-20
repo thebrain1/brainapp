@@ -11,5 +11,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
-	
+	protected function getAllOrderBy($sort)
+	{
+		$query = $this->createQueryBuilder('u')
+			->orderBy($sort);
+		
+		return $query->getQuery()->getResult();
+	}
 }
