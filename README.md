@@ -15,7 +15,7 @@ Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://
 
 ### Demo
 
-[**Live Demo**](http://brainapp.reu-network.de/brainapp/web) 
+[**Live Demo**](http://brainapp.reu-network.de/) 
 
 ## Voraussetzungen
 
