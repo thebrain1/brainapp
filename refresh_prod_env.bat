@@ -1,7 +1,7 @@
 @ECHO OFF
 rem # refresh_prod_env.bat
 rem # 
-rem # Aktualisiert die Produktivumgebung des Webservers
+rem # Aktualisiert die Produktivumgebung des Webservers (app.php)
 rem #   - installiert und dumpt Assets 
 rem #   - Cache wird aktualisiert
 
