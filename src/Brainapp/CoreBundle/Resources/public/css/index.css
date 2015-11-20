@@ -25,20 +25,20 @@ hr.star-light {
     border-color: #fff;
 }
 hr.star-light::after {
-    background-color: #18bc9c;
+    background-color: #408F9A;
     color: #fff;
 }
 hr.star-primary {
-    border-color: #2c3e50;
+    border-color: #3A3A3C;
 }
 hr.star-primary::after {
     background-color: #fff;
-    color: #2c3e50;
+    color: #3A3A3C;
 }
 
 /** LAYOUT **/
 header {
-    background: #18bc9c none repeat scroll 0 0;
+    background: #408F9A none repeat scroll 0 0;
     color: #fff;
     text-align: center;
 }
@@ -87,7 +87,7 @@ section h2 {
     margin: 0;
 }
 section.success {
-    background: #18bc9c none repeat scroll 0 0;
+    background: #408F9A none repeat scroll 0 0;
     color: #fff;
 }
 @media (max-width: 767px) {
@@ -109,7 +109,7 @@ section.success {
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
     background: #fff none repeat scroll 0 0;
     border: 2px solid #fff;
-    color: #18bc9c;
+    color: #408F9A;
 }
 
 .btn-social {
