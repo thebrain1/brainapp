@@ -19,4 +19,12 @@ class SecurityController extends BaseController
 	{
 		return parent::loginAction($request);
 	}
+    /**
+     * 
+     * @Route("/logout", name="logout")
+     */
+	public function logoutAction()
+	{
+		return parent::logoutAction();
+	}
 }
