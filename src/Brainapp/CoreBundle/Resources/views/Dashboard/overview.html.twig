@@ -9,61 +9,30 @@
 
 {% block title %}Dashboard - {{ parent() }}{% endblock %}
 
-{% block navbar %} {# NAVBAR #}
+{# override NAVBAR top #}
+{% block navbar %} 
 {% include 'BrainappCoreBundle:Template/Navbar:navbar_default_user.html.twig' %}
 {% endblock navbar %}
 
-
-{% block content %}
-<div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-
+{# override MAIN-BLOCK #}
+{% block main %}
+<h1 class="page-header">Dashboard von {{ username }}</h1>
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img alt="Generic placeholder thumbnail" class="img-responsive" data-src="holder.js/200x200/auto/sky">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img alt="Generic placeholder thumbnail" class="img-responsive" data-src="holder.js/200x200/auto/vine">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img alt="Generic placeholder thumbnail" class="img-responsive" data-src="holder.js/200x200/auto/sky">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img alt="Generic placeholder thumbnail" class="img-responsive" data-src="holder.js/200x200/auto/vine">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+             <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
           </div>
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header">Letzte Ausgaben</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -191,11 +160,9 @@
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-    </div>
 {% endblock %}
 
+{# overrider FOOTER (clear) #}
 {% block footer %}{% endblock footer %}
 
 {# {% block javascripts %}#}
@@ -204,3 +171,5 @@
 {#         <script src="{{ asset_url }}"></script>#}
 {#     {% endjavascripts %}#}
 {# {% endblock %}#}
+
+          

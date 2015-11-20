@@ -25,8 +25,10 @@ class DashboardController extends Controller
     public function overviewAction()
     {
 		$em = $this->getDoctrine()->getManager();
+		$username = $this->getUser()->getUsername();
 		
         return array(
+        		'username' => $username
         );
     }
 }

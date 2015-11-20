@@ -6,3 +6,7 @@ brainapp_core_dashboard:
     resource: "@BrainappCoreBundle/Controller/DashboardController.php"
     type:     annotation 
     
+brainapp_core_test:
+    resource: "@BrainappCoreBundle/Controller/NewTestController.php"
+    type:     annotation 
+    

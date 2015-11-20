@@ -3,6 +3,8 @@
 {% block stylesheets %}
 	{{ parent() }}
 	{% stylesheets  'bundles/brainappcore/css/default_template.css'
+					'bundles/brainappcore/css/default_navbar.css'
+					'bundles/brainappcore/css/default_form.css'
 					'bundles/brainappcore/css/index.css' filter="cssrewrite" %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -10,9 +12,9 @@
 
 {% block content %}
     <header>
-        <div class="container">
+        <div class="container"> Test
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <img alt="" src="{{ asset('bundles/brainappcore/images/brain-icon.png') }}" class="img-responsive">
                     <div class="intro-text">
                         <span class="name">Brainapp</span>
@@ -20,6 +22,7 @@
                         <span class="subtitle">Das webbasierte Haushaltsbuch</span>
                     </div>
                 </div>
+                {% include 'BrainappUserBundle:Registration:register_form.html.twig' %}
             </div>
         </div>
     </header>
