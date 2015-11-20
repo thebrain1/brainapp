@@ -23,7 +23,7 @@
 		"twitter/bootstrap" : "3.*",
 		"components/jquery" : "^2.0",
 		"components/jqueryui" : "^1.11",
-		"components/font-awesome" : "4.*",
+		"components/font-awesome" : "4.4.*",
 		"leafo/lessphp" : "dev-master"
 	},
 	"require-dev" : {
