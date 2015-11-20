@@ -2,3 +2,7 @@ brainapp_core_default:
     resource: "@BrainappCoreBundle/Controller/DefaultController.php"
     type:     annotation 
     
+brainapp_core_dashboard:
+    resource: "@BrainappCoreBundle/Controller/DashboardController.php"
+    type:     annotation 
+    

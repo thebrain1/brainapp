@@ -3,7 +3,7 @@
 {% block stylesheets %}
 	{{ parent() }}
 	{% stylesheets 
-				   'bundles/brainappcore/css/default_*'
+				   'bundles/brainappcore/css/default_template.css'
 				   'bundles/brainappcore/css/general.css' filter="cssrewrite" %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -20,6 +20,7 @@
 {% endblock content %}
 
 {# FOOTER #}
+{% block footer %}
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
@@ -64,6 +65,7 @@
             </div>
         </div>
     </footer>
+{% endblock footer %}
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll visible-xs visble-sm">

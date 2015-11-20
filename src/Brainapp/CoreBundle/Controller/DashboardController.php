@@ -19,17 +19,14 @@ class DashboardController extends Controller
 	/**
 	 * Läd Dashboard
 	 *
-	 * @Route("/dashboard", name="brainapp_dashboard")
+	 * @Route("/", name="dashboard_home")
 	 * @Template("BrainappCoreBundle:Dashboard:overview.html.twig")
 	 */
     public function overviewAction()
     {
 		$em = $this->getDoctrine()->getManager();
 		
-		$allUser = $em->getRepository('BrainappUserBundle:User')->findAll();
-		
         return array(
-			'list_user' => $allUser
         );
     }
 }

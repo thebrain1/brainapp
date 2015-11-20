@@ -60,7 +60,7 @@ assetic:
         kernel_css:
             inputs:
                 - "%kernel.root_dir%/../vendor/twitter/bootstrap/dist/css/bootstrap.css" 
-                - "%kernel.root_dir%/../vendor/twitter/bootstrap/dist/css/bootstrap-theme.css" 
+                #- "%kernel.root_dir%/../vendor/twitter/bootstrap/dist/css/bootstrap-theme.css" 
                 - "%kernel.root_dir%/../vendor/components/font-awesome/css/font-awesome.css" 
             output: 'css/kernel.css'
 
