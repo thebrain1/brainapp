@@ -24,7 +24,7 @@ Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://
 
 ## Installation
 
-Eine ausführliche Anleitung zur Einrichtung der **Entwicklungsumgebung** befindet sich im [**Wiki**](https://github.com/thebrain1/brainapp/wiki/Einrichtung-Entwicklungsumgebung)
+Eine ausführliche Anleitung zur **Einrichtung der Entwicklungsumgebung** befindet sich im [**Wiki**](https://github.com/thebrain1/brainapp/wiki/Einrichtung-Entwicklungsumgebung)
 
 <hr>
 
@@ -33,6 +33,8 @@ Eine ausführliche Anleitung zur Einrichtung der **Entwicklungsumgebung** befind
 Das Repository sollte im entsprechenden Verzeichnis des Webservers "ausgecheckt" werden.
 
     git clone https://github.com/thebrain1/brainapp.git
+    // oder mit Userverweis
+    git clone https://<benutzername>@github.com/thebrain1/brainapp.git
 
 ### Pakete installieren
 Nachdem die Dateien aus dem Repository heruntergeladen wurden, müssen die notwendigen Paketdateien heruntergeladen und installaiert werden. 
