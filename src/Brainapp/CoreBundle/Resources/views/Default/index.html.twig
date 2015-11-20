@@ -3,6 +3,7 @@
 {% block stylesheets %}
 	{{ parent() }}
 	{% stylesheets  'bundles/brainappcore/css/default_template.css'
+					'bundles/brainappcore/css/default_navbar.css'
 					'bundles/brainappcore/css/index.css' filter="cssrewrite" %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
