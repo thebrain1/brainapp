@@ -24,7 +24,15 @@ Die Webanwendung nutzt das PHP Framework [**Symfony Standard Edition**](https://
 
 ## Installation
 
-Für die Entwicklung, muss zuvor ein Webserver mit PHP 5.3 und eine MySQL Datenbank vorhanden sein. Für die lokale Entwicklung bietet sich bspw. [**XAMPP**](http://www.apachefriends.org) an. 
+Eine ausführliche Anleitung zur Einrichtung der **Entwicklungsumgebung** befindet sich im [**Wiki**](https://github.com/thebrain1/brainapp/wiki/Einrichtung-Entwicklungsumgebung)
+
+<hr>
+
+### Repository clonen
+
+Das Repository sollte im entsprechenden Verzeichnis des Webservers "ausgecheckt" werden.
+
+    git clone https://github.com/thebrain1/brainapp.git
 
 ### Pakete installieren
 Nachdem die Dateien aus dem Repository heruntergeladen wurden, müssen die notwendigen Paketdateien heruntergeladen und installaiert werden. 
