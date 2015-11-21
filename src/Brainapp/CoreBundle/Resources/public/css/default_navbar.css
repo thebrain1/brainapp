@@ -59,7 +59,7 @@
     color: #408F9A;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    background: #1a242f;
+    background: #408F9A;
     color: #ffffff;
 }
 .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
@@ -67,7 +67,7 @@
     color: #cccccc;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    background: #1a242f;
+    background: #408F9A;
     color: #ffffff;
 }
 .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
@@ -75,10 +75,10 @@
     color: #cccccc;
 }
 .navbar-default .navbar-toggle {
-    border-color: #1a242f;
+    border-color: #408F9A;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background: #1a242f;
+    background: #408F9A;
 }
 .navbar-default .navbar-toggle .icon-bar {
     background: #ffffff;
@@ -87,7 +87,7 @@
     border-color: transparent;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    background: #1a242f;
+    background: #408F9A;
     color: #ffffff;
 }
 
