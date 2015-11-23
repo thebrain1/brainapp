@@ -32,4 +32,9 @@ class UserRepository extends EntityRepository
 	{
 		return $this->findById($id);
 	}
+	
+	public function getUsernameByUserId($id)
+	{
+		return $this->getUserById()->getUsername();
+	}
 }

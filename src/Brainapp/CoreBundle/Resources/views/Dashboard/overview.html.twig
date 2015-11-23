@@ -1,38 +1,7 @@
-{% extends 'BrainappCoreBundle:Template:template_default.html.twig' %}
+{% extends 'BrainappCoreBundle:Dashboard:default_dashboard.html.twig' %}
 
-{% block stylesheets %}
-	{{ parent() }}
-	{% stylesheets 'bundles/brainappcore/css/default_style.css' filter="cssrewrite" %}
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-{% endblock  %}
-
-{% block title %}Dashboard - {{ parent() }}{% endblock %}
-
-{# override NAVBAR top #}
-{% block navbar %} 
-{% include 'BrainappCoreBundle:Template/Navbar:navbar_default_user.html.twig' %}
-{% endblock navbar %}
-
-{# override MAIN-BLOCK #}
-{% block main %}
-<h1 class="page-header">Dashboard</h1>
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-             <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-
-          <h2 class="sub-header">Letzte Ausgaben</h2>
+{% block dashboardContent %}
+<h2 class="sub-header">Letzte Ausgaben</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>

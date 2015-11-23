@@ -5,8 +5,8 @@ brainapp_core_default:
 brainapp_core_dashboard:
     resource: "@BrainappCoreBundle/Controller/DashboardController.php"
     type:     annotation 
-    
-brainapp_core_test:
-    resource: "@BrainappCoreBundle/Controller/NewTestController.php"
+
+brainapp_core_dashboard_user_categories:
+    resource: "@BrainappCoreBundle/Controller/DashboardUserCategoriesController.php"
     type:     annotation 
     

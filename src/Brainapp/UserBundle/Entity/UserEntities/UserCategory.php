@@ -3,21 +3,33 @@
 namespace Brainapp\UserBundle\Entity\UserEntities;
 
 use Brainapp\UserBundle\Entity\AbstractEntities\AbstractCategory;
+use Brainapp\UserBundle\Entity\User;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * UserCategory Entity
+ *
+ * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\UserEntities\UserCategoryRepository")
+ */
 class UserCategory extends AbstractCategory
 {
-	protected $userId;
 	
-	public function __construct($categoryId, $categoryName, $userId, $parentCategoryId=null)
+	/**
+	 * @ORM\ManyToOne(targetEntity="Brainapp\UserBundle\Entity\User")
+	 * @ORM\Column(name="ownerId", type="integer")
+	 * @ORM\JoinColumn={referencedColumnName="id")}
+	 */
+	protected $ownerId;
+	
+	public function __construct($categoryId, $categoryName, $ownerId, $parentCategoryId=null)
 	{
 		parent::__construct($categoryId, $categoryName, $parentCategoryId);
 	
-		$this->userId = $userId;
+		$this->ownerId = $ownerId;
 	}
-	
-	public function getUserId()
+		
+	public function getOwnerId()
 	{
-		return $this->userId;
+		return $this->ownerId;
 	}
-	
 }

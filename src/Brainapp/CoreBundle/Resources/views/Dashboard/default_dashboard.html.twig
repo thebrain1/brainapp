@@ -1,0 +1,49 @@
+{% extends 'BrainappCoreBundle:Template:template_default.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{% stylesheets 'bundles/brainappcore/css/default_style.css' filter="cssrewrite" %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock  %}
+
+{% block title %}Dashboard - {{ parent() }}{% endblock %}
+
+{# override NAVBAR top #}
+{% block navbar %} 
+{% include 'BrainappCoreBundle:Template/Navbar:navbar_default_user.html.twig' %}
+{% endblock navbar %}
+
+{# override MAIN-BLOCK #}
+{% block main %}
+<h1 class="page-header">Kategorien von {{ username }} ({{ userid }})</h1>
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Hauptkategorie hinzufügen</a></p>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+             <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+          
+          {% block dashboardContent %}{% endblock %}
+
+{% endblock %}
+
+{# overrider FOOTER (clear) #}
+{% block footer %}{% endblock footer %}
+
+{# {% block javascripts %}#}
+{# 	{{ parent() }}#}
+{#     {% javascripts '@jqueryui_js' '@BrainappCoreBundle/Resources/public/js/classie.js' '@BrainappCoreBundle/Resources/public/js/default.js' %}#}
+{#         <script src="{{ asset_url }}"></script>#}
+{#     {% endjavascripts %}#}
+{# {% endblock %}#}
+
+          
