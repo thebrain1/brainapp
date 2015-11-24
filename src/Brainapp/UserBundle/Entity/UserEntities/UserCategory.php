@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserCategory Entity
  *
+ * @author Chris Schneider
+ *
  * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\UserEntities\UserCategoryRepository")
  */
 class UserCategory extends AbstractCategory
@@ -21,9 +23,9 @@ class UserCategory extends AbstractCategory
 	 */
 	protected $ownerId;
 	
-	public function __construct($categoryId, $categoryName, $ownerId, $parentCategoryId=null)
+	public function __construct($categoryName=null, $ownerId=null, $parentCategoryId=null)
 	{
-		parent::__construct($categoryId, $categoryName, $parentCategoryId);
+		parent::__construct($categoryName, $parentCategoryId);
 	
 		$this->ownerId = $ownerId;
 	}
@@ -31,5 +33,11 @@ class UserCategory extends AbstractCategory
 	public function getOwnerId()
 	{
 		return $this->ownerId;
+	}
+	
+	public function setOwnerId($ownerId)
+	{
+		$this->ownerId = $ownerId;
+		return $this;
 	}
 }

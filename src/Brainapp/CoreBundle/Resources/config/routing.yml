@@ -3,10 +3,17 @@ brainapp_core_default:
     type:     annotation 
     
 brainapp_core_dashboard:
-    resource: "@BrainappCoreBundle/Controller/DashboardController.php"
+    resource: "@BrainappCoreBundle/Controller/Dashboard/DashboardController.php"
     type:     annotation 
 
-brainapp_core_dashboard_user_categories:
-    resource: "@BrainappCoreBundle/Controller/DashboardUserCategoriesController.php"
+brainapp_core_dashboard_show_user_categories:
+    resource: "@BrainappCoreBundle/Controller/Dashboard/DashboardShowUserCatController.php"
     type:     annotation 
+
+add_user_main_category:
+    path:  /home/usercategories/addcategory/main
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddUserCat:addUserMainCategory }
     
+add_group_main_category:
+    path:  /home/groupcategories/addcategory/main
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddGroupCat:addGroupMainCategory }

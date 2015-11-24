@@ -1,0 +1,9 @@
+{% extends 'BrainappCoreBundle:Dashboard:default_dashboard.html.twig' %}
+
+{# override dashboardContent #}
+{% block dashboardContent %}
+<h2 class='sub-header'>Neue Hauptkategorie anlegen</h2>
+
+{% include 'BrainappCoreBundle:Dashboard/Widgets:form_create_mainCategory.html.twig' %}
+
+{% endblock %}

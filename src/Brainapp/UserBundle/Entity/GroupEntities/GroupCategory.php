@@ -7,8 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * GroupCategory Entity
+ *	
+ * @author Chris Schneider
  *
- * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\GroupCategoryRepository")
+ * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\GroupEntities\GroupCategoryRepository")
  */
 class GroupCategory extends AbstractCategory
 {
@@ -20,9 +22,9 @@ class GroupCategory extends AbstractCategory
 	 */
 	protected $ownerId;
 	
-	public function __construct($categoryId, $categoryName, array $ownerId, $parentCategoryId=null)
+	public function __construct($categoryName=null, $ownerId=null, $parentCategoryId=null)
 	{
-		parent::__construct($categoryId,$categoryName,$parentCategoryId);
+		parent::__construct($categoryName,$parentCategoryId);
 		
 		$this->ownerId = $ownerId;
 	}
@@ -31,7 +33,12 @@ class GroupCategory extends AbstractCategory
 	{
 		return $this->ownerId;
 	}
-		
+	
+	public function setOwnerId($ownerId)
+	{
+		$this->ownerId = $ownerId;
+		return $this;
+	}
 	
 	//Aufheben. Irgenwann mal nützlich
 	

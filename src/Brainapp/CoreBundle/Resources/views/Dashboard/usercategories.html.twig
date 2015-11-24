@@ -1,7 +1,16 @@
 {% extends 'BrainappCoreBundle:Dashboard:default_dashboard.html.twig' %}
 
+{# override dashboardContent #}
 {% block dashboardContent %}
-   <h2 class="sub-header">Hauptkategorien</h2>
+
+<h1 class="page-header">Kategorien von {{ username }} ({{ userid }})</h1>
+<div class="row placeholders">
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <p><a class="btn btn-primary btn-lg" href="{{ path('add_user_main_category') }}" role="button">Hauptkategorie hinzufügen</a></p>
+  </div>
+</div>
+
+<h2 class="sub-header">Hauptkategorien</h2>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -14,7 +23,7 @@
          </tr>
        </thead>
        <tbody>
-            {% for cat in test %}
+            {% for cat in userCategories %}
               <tr>
                  <td>{{ cat.categoryId }}</td>
                  <td>{{ cat.categoryName }}</td>
@@ -49,7 +58,7 @@
          </tr>
        </thead>
        <tbody>
-            {% for cat in test %}
+            {% for cat in userCategories %}
               <tr>
                  <td>{{ cat.categoryId }}</td>
                  <td>{{ cat.categoryName }}</td>
@@ -81,10 +90,7 @@
            <h4 class="modal-title">Hauptkategorie bearbeiten</h4>
          </div>
          <div class="modal-body">
-           <div class="input-group">
-           <span class="input-group-addon" id="sizing-addon2">Name</span>
-           <input type="text" class="form-control" placeholder="Name" aria-describedby="sizing-addon2">
-           </div>
+           {{ render(controller('BrainappCoreBundle:Dashboard/DashboardAddUserCat:addUserMainCategory')) }}
          </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-default" data-dismiss="modal">Speichern</button>
@@ -117,15 +123,5 @@
      </div>
    </div>
 {% endblock %}
-
-{# overrider FOOTER (clear) #}
-{% block footer %}{% endblock footer %}
-
-{# {% block javascripts %}#}
-{# 	{{ parent() }}#}
-{#     {% javascripts '@jqueryui_js' '@BrainappCoreBundle/Resources/public/js/classie.js' '@BrainappCoreBundle/Resources/public/js/default.js' %}#}
-{#         <script src="{{ asset_url }}"></script>#}
-{#     {% endjavascripts %}#}
-{# {% endblock %}#}
 
           

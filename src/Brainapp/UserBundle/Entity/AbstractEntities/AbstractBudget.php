@@ -4,6 +4,11 @@ namespace Brainapp\UserBundle\Entity\AbstractEntities;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * AbstractBudget
+ *
+ * @author Chris Schneider
+ */
 abstract class AbstractBudget
 {
 

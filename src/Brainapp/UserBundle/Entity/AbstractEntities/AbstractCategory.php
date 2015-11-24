@@ -3,14 +3,24 @@
 namespace Brainapp\UserBundle\Entity\AbstractEntities;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Diese Klasse repräsentiert eine Kategorie, entweder die einer Gruppe oder eines (persönliche) des Users.
+ * 
+ * @author Chris Schneider
+ * 
  * @ORM\Entity
  * @ORM\Table(name="tbl_category")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap( {"user" = "Brainapp\UserBundle\Entity\UserEntities\UserCategory", "group" = "Brainapp\UserBundle\Entity\GroupEntities\GroupCategory"} )
+ * @UniqueEntity(
+ * 		fields={"categoryName","ownerId"},
+ * 		errorPath="categoryName",
+ * 		message="This categoryName is already used by the user."
+ * )
  */
 abstract class AbstractCategory
 {
@@ -24,7 +34,8 @@ abstract class AbstractCategory
 	protected $categoryId;
 	
 	/**
-	 * @ORM\Column(name="categoryName", type="string", unique=true)
+	 * @ORM\Column(name="categoryName", type="string")
+	 * @Assert\NotBlank()
 	 */
 	protected $categoryName;
 	/**
@@ -32,10 +43,11 @@ abstract class AbstractCategory
 	 */
 	protected $parentCategoryId;
 	
+	protected $ownerId;
+	
 	//Konstruktor
-	public function __construct($categoryId,$categoryName, $parentCategoryId=null)
+	public function __construct($categoryName, $parentCategoryId=null)
 	{
-		$this->categoryId = $categoryId;
 		$this->categoryName = $categoryName;
 		
 		if(!(null==$parentCategoryId))
@@ -47,7 +59,7 @@ abstract class AbstractCategory
 	
 	//Abstrakte Methoden
 	public abstract function getOwnerId();
-	
+	public abstract function setOwnerId($ownerId);
 	
 	//getter und setter
 	public function getCategoryId()

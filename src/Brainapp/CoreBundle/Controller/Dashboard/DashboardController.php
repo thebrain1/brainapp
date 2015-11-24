@@ -1,7 +1,8 @@
 <?php
 
-namespace Brainapp\CoreBundle\Controller;
+namespace Brainapp\CoreBundle\Controller\Dashboard;
 
+use Brainapp\CoreBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
