@@ -5,6 +5,11 @@ namespace Brainapp\CoreBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * 
+ * @author Chris Schneider
+ *
+ */
 class UserCategoryForm extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
