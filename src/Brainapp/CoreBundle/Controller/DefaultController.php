@@ -5,6 +5,8 @@ namespace Brainapp\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Brainapp\UserBundle\Form\RegistrationFormType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * DefaultController
@@ -20,7 +22,7 @@ class DefaultController extends Controller
 	 * @Route("/", name="brainapp_index")
 	 * @Template("BrainappCoreBundle:Default:index.html.twig")
 	 */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
     	// Weiterleitung auf Dashboard, wenn Benutzer bereits angemeldet
     	$securityContext = $this->container->get('security.authorization_checker');
@@ -39,7 +41,23 @@ class DefaultController extends Controller
     		: null;
     	}
     	
+    	// Register form
+    	/** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+    	$userManager = $this->get('fos_user.user_manager');
+    	
+    	$user = $userManager->createUser();
+    	$user->setEnabled(true);
+    	
+    	$form = $this->createForm(new RegistrationFormType(), $user);
+    	$form->handleRequest($request);
+    	
+    	if($form->isValid())
+    	{
+    		$userManager->updateUser($user);
+    	}
+    	
         return array(
+        		'form_registration' => $form->createView(),
         		'csrf_token' => $csrfToken
         );
     }
