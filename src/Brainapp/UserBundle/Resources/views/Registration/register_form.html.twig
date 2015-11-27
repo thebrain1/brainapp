@@ -11,6 +11,10 @@
 		</div>
 	</div>
 	<div class="form-bottom">
+{# 			<div class="alert alert-danger alert-dismissible" role="alert">#}
+{# 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{# 				<strong>Es ist ein Fehler aufgetreten!</strong> {{ form_errors(form) }}#}
+{# 			</div>#}
 		{{ form(form, { 'attr': { 'novalidate': 'novalidate'} }) }}
 			<a href="#login" class="btn btn-default btn-block page-scroll">Bereits registriert?</a>
 	</div>

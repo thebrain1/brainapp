@@ -5,6 +5,7 @@ namespace Brainapp\UserBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegistrationFormType extends AbstractType 
 {
@@ -14,7 +15,10 @@ class RegistrationFormType extends AbstractType
 			->add('username', 'text', array(
 					'label' => 'Benutzername',
 					'attr' => array('placeholder' => 'Benutzername'),
-					'label_attr' => array('class' => 'sr-only')
+					'label_attr' => array('class' => 'sr-only'),
+					'constraints' => array(
+							new NotBlank(array('message' => "Geben Sie einen Benutzernamen an"))
+					)
 			))
 			->add('email', 'email', array(
 					'label' => 'E-Mail Adresse',
