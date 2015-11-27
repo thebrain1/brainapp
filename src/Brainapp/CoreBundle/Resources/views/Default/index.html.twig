@@ -22,7 +22,7 @@
                         <span class="subtitle">Das webbasierte Haushaltsbuch</span>
                     </div>
                 </div>
-                {% render url('registration_register') %}
+                	{% include 'BrainappUserBundle:Registration:register_form.html.twig' with { 'form': form_registration } %}
             </div>
         </div>
     </header>
