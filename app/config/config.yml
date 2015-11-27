@@ -36,6 +36,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources: ['bootstrap_3_layout.html.twig']
+        # resources: ['bootstrap_3_horizontal_layout.html.twig']
 
 # Assetic Configuration
 assetic:
@@ -138,3 +141,6 @@ fos_user:
     user_class:  Brainapp\UserBundle\Entity\User
     group:
         group_class: Brainap\UserBundle\Entity\Group
+    registration:
+        form:
+            type: brainapp_user_registration

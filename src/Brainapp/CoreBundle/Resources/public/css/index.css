@@ -42,6 +42,9 @@ header {
     color: #fff;
     text-align: center;
 }
+header label{
+    color: #3a3a3c;
+}
 header .container {
     padding-bottom: 50px;
     padding-top: 100px;

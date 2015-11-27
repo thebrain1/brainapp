@@ -2,3 +2,13 @@ services:
 #    brainapp_user.example:
 #        class: Brainapp\UserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+      brainapp_form.registration:
+        class: Brainapp\UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: brainapp_user_registration }
+            
+      brainapp_registration_complet:
+        class: Brainapp\UserBundle\EventListener\RegistrationConfirmListener
+        arguments: ["@router"]
+        tags:
+            - { name: kernel.event_subscriber }
