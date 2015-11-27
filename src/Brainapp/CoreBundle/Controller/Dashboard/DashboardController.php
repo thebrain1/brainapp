@@ -1,12 +1,11 @@
 <?php
 
-namespace Brainapp\CoreBundle\Controller;
+namespace Brainapp\CoreBundle\Controller\Dashboard;
 
+use Brainapp\CoreBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Brainapp\UserBundle\Entity\User;
-use Brainapp\UserBundle\Entity\Group;
 
 /**
  * DashboardController
@@ -14,7 +13,7 @@ use Brainapp\UserBundle\Entity\Group;
  * @author Michael Müller <development@reu-network.de>
  * @Route("/home")
  */
-class DashboardController extends Controller
+class DashboardController extends AbstractController
 {
 	/**
 	 * Läd Dashboard
@@ -24,9 +23,6 @@ class DashboardController extends Controller
 	 */
     public function overviewAction()
     {
-		$em = $this->getDoctrine()->getManager();
-		
-        return array(
-        );
+    	return $this->concatWithUserDataArray();
     }
 }

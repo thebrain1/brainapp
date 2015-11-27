@@ -1,0 +1,34 @@
+{% extends 'BrainappCoreBundle:Template:template_default.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{% stylesheets 'bundles/brainappcore/css/default_style.css' filter="cssrewrite" %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock  %}
+
+{% block title %}Dashboard - {{ parent() }}{% endblock %}
+
+{# override NAVBAR top #}
+{% block navbar %} 
+{% include 'BrainappCoreBundle:Template/Navbar:navbar_default_user.html.twig' %}
+{% endblock navbar %}
+
+{# override MAIN-BLOCK #}
+{% block main %}
+          
+          {% block dashboardContent %}{% endblock %}
+
+{% endblock %}
+
+{# overrider FOOTER (clear) #}
+{% block footer %}{% endblock footer %}
+
+{# {% block javascripts %}#}
+{# 	{{ parent() }}#}
+{#     {% javascripts '@jqueryui_js' '@BrainappCoreBundle/Resources/public/js/classie.js' '@BrainappCoreBundle/Resources/public/js/default.js' %}#}
+{#         <script src="{{ asset_url }}"></script>#}
+{#     {% endjavascripts %}#}
+{# {% endblock %}#}
+
+          

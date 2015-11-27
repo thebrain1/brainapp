@@ -18,4 +18,23 @@ class UserRepository extends EntityRepository
 		
 		return $query->getQuery()->getResult();
 	}
+	
+	
+	//findOneBy(array $criteria, array $orderBy = null)
+	public function getUserByUsername($username)
+	{
+		//return $this->findByUsername($username);
+		
+		return $this->findBy(array('username' => $username));
+	}
+	
+	public function getUserById($id)
+	{
+		return $this->findById($id);
+	}
+	
+	public function getUsernameByUserId($id)
+	{
+		return $this->getUserById()->getUsername();
+	}
 }

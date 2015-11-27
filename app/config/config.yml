@@ -70,7 +70,7 @@ assetic:
         # FONTS - BOOTSTRAP 
         bootstrap_glyphicons_ttf:
             inputs:
-                -   %kernel.root_dir%/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf 
+                -   "%kernel.root_dir%/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" 
             output: "fonts/glyphicons-halflings-regular.ttf" 
         bootstrap_glyphicons_eot:
             inputs:
