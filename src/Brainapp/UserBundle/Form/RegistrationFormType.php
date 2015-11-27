@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
 
 class RegistrationFormType extends AbstractType 
 {
@@ -17,13 +19,18 @@ class RegistrationFormType extends AbstractType
 					'attr' => array('placeholder' => 'Benutzername'),
 					'label_attr' => array('class' => 'sr-only'),
 					'constraints' => array(
-							new NotBlank(array('message' => "Geben Sie einen Benutzernamen an"))
+							new NotBlank(array('message' => "Geben Sie einen Benutzernamen an")),
+							new Length(array('min' => 4, 'minMessage' => "Der Benutzername ist zu kurz. Mindestens {{ limit }} Zeichen lang"))
 					)
 			))
 			->add('email', 'email', array(
 					'label' => 'E-Mail Adresse',
 					'attr' => array('placeholder' => 'E-Mail Adresse'),
-					'label_attr' => array('class' => 'sr-only')
+					'label_attr' => array('class' => 'sr-only'),
+					'constraints' => array(
+							new NotBlank(array('message' => "Geben Sie eine E-Mail Adresse an")),
+							new Email(array('message' => "Geben Sie eine gültige E-Mail Adresse an"))
+					)
 			))
 			->add('plainPassword', 'repeated', array(
 				'type' => 'password',
@@ -37,8 +44,12 @@ class RegistrationFormType extends AbstractType
 						'attr' => array('placeholder' => 'Passwort wiederholen'),
 						'label_attr' => array('class' => 'sr-only')
 				),
-				'invalid_message' => 'Die eingegebenen Passwörter stimmen nicht überein!' 
-		) )
+				'invalid_message' => 'Die eingegebenen Passwörter stimmen nicht überein!', 
+				'constraints' => array(
+						new NotBlank(array('message' => "Geben Sie ein Passwort an")),
+						new Length(array('min' => 8, 'minMessage' => "Ihr Passwort ist zu kurz. Mindestens {{ limit }} Zeichen lang"))
+				)
+			))
 			->add('submit', 'submit', array(
 					'label' => 'Registrieren!',
 					'attr' => array('class' => 'btn-info btn-block'),
