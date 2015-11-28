@@ -104,6 +104,7 @@ class DefaultController extends Controller
     	return array(
     			'last_username' => $lastUsername,
     			'error' => $error,
+    	        'modal_login' => true,
     			'csrf_token_login' => $csrfTokenLogin,
         		'form_registration' => $form->createView(),
         		'csrf_token_registration' => $csrfToken

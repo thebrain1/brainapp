@@ -16,7 +16,9 @@
 {# 				<strong>Es ist ein Fehler aufgetreten!</strong> {{ form_errors(form) }}#}
 {# 			</div>#}
 		{{ form(form, { 'attr': { 'novalidate': 'novalidate'} }) }}
-			<a href="#login" class="btn btn-default btn-block page-scroll">Bereits registriert?</a>
+			{% if modal_login is defined %}	{% if modal_login  %}
+			<a href="" type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#loginModal">
+			{% else %}<a href="#login" type="button" class="btn btn-default btn-block page-scroll">{% endif %}{% endif %}Bereits registriert?</a>
 	</div>
 </div>
 

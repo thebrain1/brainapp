@@ -23,11 +23,14 @@
                     </div>
                 </div>
                 	{# Formular für Registrierung einbinden #}
-                	{% include 'BrainappUserBundle:Registration:register_form.html.twig' with { 'form': form_registration, 'csrf_token': csrf_token_registration } %}
+                	{% include 'BrainappUserBundle:Registration:register_form.html.twig' with { 'form': form_registration, 'csrf_token': csrf_token_registration} %}
             </div>
         </div>
     </header>
 
+   {% if modal_login %}
+    {% include 'BrainappUserBundle:Security:login_modal.html.twig' with { 'csrf_token': csrf_token_login } %}
+   {% else %}
 	{# SECTION LOGIN #}
 	<section id="login">
         <div class="container">
@@ -39,11 +42,36 @@
                 <div class="col-lg-12">
 {#                 	{% include 'BrainappUserBundle:Security:login_form_box.html.twig' with { 'csrf_token': csrf_token_login } %}#}
                 	{% include 'BrainappUserBundle:Security:login_widget.html.twig' with { 'csrf_token': csrf_token_login } %}
+                	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">
+                      login modal
+                    </button>
                 </div>
             </div>
 		</div>
     </section>
-{# 	{% include 'BrainappUserBundle:Security:modal_login.html.twig' with { 'csrf_token': csrf_token_login } %}#}
+   {% endif %}
+
+	{# SECTION ABOUT #}
+	<section id="about"{% if modal_login == false %} class="success"{% endif %}>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    {% if modal_login %}<hr class="star-primary">{% else %}<hr class="star-light">{% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1">
+                	<p><strong>Brainapp</strong> entstand im Rahmer einer studentischen Projektarbeit der <strong>Hochschule für Telekommunikation Leipzig (HfTL)</strong> durch die Studentengruppe KMI14/WI14</p>
+                </div>
+                <div class="col-lg-3 col-lg-offset-1">
+                	{% if modal_login %}{% set image_path = 'bundles/brainappcore/images/hftl-logo.jpg' %}
+                	{% else %}{% set image_path = 'bundles/brainappcore/images/hftl-logo-n.png' %} {% endif %}
+                	<a href="www.hft-leipzig.de" target="_blank"><img alt="Hochschule für Telekommunikation Leipzig (HftL)" title="Website der Hochschule für Telekommunikation Leipzig (HftL)" src="{{ asset(image_path) }}" class="img-responsive"></a>
+                </div>
+            </div>
+		</div>
+    </section>
 {% endblock content %}
 
 {% block javascripts %}
@@ -51,4 +79,9 @@
     {% javascripts '@jqueryui_js' '@BrainappCoreBundle/Resources/public/js/classie.js' '@BrainappCoreBundle/Resources/public/js/default.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+    {% if modal_login %}
+    {% javascripts '@BrainappUserBundle/Resources/public/js/modal_login.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% endif %}
 {% endblock %}
