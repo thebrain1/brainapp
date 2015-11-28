@@ -46,7 +46,6 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
             
             return new RedirectResponse($url);
         }
-        
         return new RedirectResponse($this->router->generate('brainapp_core_homepage'));
     }
 
