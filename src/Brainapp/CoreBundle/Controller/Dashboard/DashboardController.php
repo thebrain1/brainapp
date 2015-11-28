@@ -23,6 +23,10 @@ class DashboardController extends AbstractController
 	 */
     public function overviewAction()
     {
+        $user = $this->getUser();
+        if($user->getLastLogin() === null)
+            return $this->redirect($this->generateUrl('dashboard_first_login'));
+        
     	return $this->concatWithUserDataArray();
     }
     

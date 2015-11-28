@@ -19,6 +19,8 @@ $(document).ready(function() {
 					$('#error #message').html(data.message);
 					$('#error').slideDown(300);
 				}
+				else
+					location.reload();
 			},
 			error : function(data, status, object) {
 				console.log(data);
