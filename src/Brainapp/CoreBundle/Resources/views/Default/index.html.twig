@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 	{# Formular für Registrierung einbinden #}
-                	{% include 'BrainappUserBundle:Registration:register_form.html.twig' with { 'form': form_registration } %}
+                	{% include 'BrainappUserBundle:Registration:register_form.html.twig' with { 'form': form_registration, 'csrf_token': csrf_token_registration } %}
             </div>
         </div>
     </header>
@@ -37,11 +37,13 @@
                     <hr class="star-primary">
                 </div>
                 <div class="col-lg-12">
-                	{% include 'BrainappUserBundle:Security:login_widget.html.twig' %}
+{#                 	{% include 'BrainappUserBundle:Security:login_form_box.html.twig' with { 'csrf_token': csrf_token_login } %}#}
+                	{% include 'BrainappUserBundle:Security:login_widget.html.twig' with { 'csrf_token': csrf_token_login } %}
                 </div>
             </div>
 		</div>
     </section>
+{# 	{% include 'BrainappUserBundle:Security:modal_login.html.twig' with { 'csrf_token': csrf_token_login } %}#}
 {% endblock content %}
 
 {% block javascripts %}
