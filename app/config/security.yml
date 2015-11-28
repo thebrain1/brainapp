@@ -26,6 +26,8 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
+                success_handler: authentication_handler
+                failure_handler: authentication_handler
                 csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
                 default_target_path: dashboard_home
                 login_path: /
