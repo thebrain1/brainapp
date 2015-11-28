@@ -9,6 +9,7 @@ use Brainapp\UserBundle\Form\RegistrationFormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 /**
  * DefaultController
@@ -56,6 +57,10 @@ class DefaultController extends Controller
     	if($form->isValid())
     	{
     		$userManager->updateUser($user);
+    		$token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
+    		$this->get('security.context')->setToken($token);
+    		$this->get('session')->set('_security_main',serialize($token));
+    		return $this->redirect($this->generateUrl('dashboard_home'));
     	}
     	
     	// LOGIN
