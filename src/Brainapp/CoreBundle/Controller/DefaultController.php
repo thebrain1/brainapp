@@ -60,7 +60,7 @@ class DefaultController extends Controller
     		$token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
     		$this->get('security.context')->setToken($token);
     		$this->get('session')->set('_security_main',serialize($token));
-    		return $this->redirect($this->generateUrl('dashboard_home'));
+    		return $this->redirect($this->generateUrl('dashboard_first_login'));
     	}
     	
     	// LOGIN
