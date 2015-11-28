@@ -14,7 +14,7 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-7 col-md-6 col-xs-12">
                     <img alt="" src="{{ asset('bundles/brainappcore/images/brain-icon.png') }}" class="img-responsive">
                     <div class="intro-text">
                         <span class="name">Brainapp</span>
@@ -22,6 +22,7 @@
                         <span class="subtitle">Das webbasierte Haushaltsbuch</span>
                     </div>
                 </div>
+                	{# Formular für Registrierung einbinden #}
                 	{% include 'BrainappUserBundle:Registration:register_form.html.twig' with { 'form': form_registration } %}
             </div>
         </div>
