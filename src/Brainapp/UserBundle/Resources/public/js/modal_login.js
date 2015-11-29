@@ -4,9 +4,14 @@ $(document).ready(function() {
 		$('#error').slideUp(300);
 	});
 	
+	$('#loginModal').on('shown.bs.modal', function () {
+	    $('#username').focus();
+	})
+	
 	$('.modal #submit').click(function(e) {
 		e.preventDefault();
 		var $form = $("#form-login");
+		$('#username').select();
 		$.ajax({
 			type : $form.attr('method'),
 			url : $form.attr('action'),
