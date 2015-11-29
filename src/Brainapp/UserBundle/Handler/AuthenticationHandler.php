@@ -41,7 +41,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
             // Create a flash message with the authentication error message
             $request->getSession()
                 ->getFlashBag()
-                ->set('error', $exception->getMessage());
+                ->set('error', "Es ist ein Fehler während des Login aufgetreten.");
             $url = $this->router->generate('fos_user_security_login');
             
             return new RedirectResponse($url);
