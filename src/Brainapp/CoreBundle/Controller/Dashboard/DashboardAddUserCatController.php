@@ -3,7 +3,10 @@
 namespace Brainapp\CoreBundle\Controller\Dashboard;
 
 use Brainapp\CoreBundle\Controller\AbstractController;
+use Brainapp\UserBundle\Entity\AbstractEntities\AbstractCategory;
 use Brainapp\UserBundle\Entity\UserEntities\UserCategory;
+use Brainapp\CoreBundle\Form\ErrorForm;
+use Brainapp\CoreBundle\Form\SubUserCategoryForm;
 use Brainapp\CoreBundle\Form\UserCategoryForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +30,7 @@ class DashboardAddUserCatController extends AbstractController
     	
 		$form->handleRequest($request);
 		
-		$this->requestLogging($form, $request, $logger, $userCat);
+		$this->requestLogging($form, $request, $userCat);
 		
 		if( $form->isValid() )
 		{
@@ -55,8 +58,8 @@ class DashboardAddUserCatController extends AbstractController
     
     public function editUserMainCategoryAction(Request $request)
     {
-    
     	$logger = $this->get('logger');
+    	
     	$error = null;
     	$userCat = new UserCategory();
     
@@ -64,7 +67,7 @@ class DashboardAddUserCatController extends AbstractController
     	 
     	$form->handleRequest($request);
     
-    	$this->requestLogging($form, $request, $logger, $userCat);
+    	$this->requestLogging($form, $request, $userCat);
     
     	if( $form->isValid() )
     	{
@@ -90,8 +93,74 @@ class DashboardAddUserCatController extends AbstractController
     					"error" => $error));
     }
     
-    private function requestLogging($form, $request, $logger, $userCat)
+    public function addUserSubCategoryAction(Request $request, $parentCatId)
     {
+    	
+    	$logger = $this->get('logger');
+    	
+    	$error = null;
+    	
+    	$logger->info("parentCategoryId=" . $parentCatId);
+    	
+    	$em = $this->getDoctrine()->getManager();
+    	$userCatRep = $em->getRepository('Brainapp\UserBundle\Entity\UserEntities\UserCategory');
+    	
+    	$parentUserCat = $userCatRep->getUserCategoryByCategoryId($parentCatId);
+    	$parentCatName = null;
+    	
+    	$subUserCat = new UserCategory();
+    	$subUserCat->setParentCategoryId($parentCatId);
+    	
+    	$form = null; 
+    	
+    	if($parentUserCat == null)
+    	{
+    		$error = "Diese Hauptkategorie existiert nicht.";
+    		
+    		$form = $this->createForm(new ErrorForm(), $subUserCat);
+    		
+    		return $this->render("BrainappCoreBundle:Dashboard:errorPage.html.twig",
+    				array("c_mask_user_cat" => $form->createView(),
+    						"error" => $error));
+    	}
+    	else
+    	{
+    		$form = $this->createForm(new SubUserCategoryForm(), $subUserCat);
+    		
+    		$parentCatName = $parentUserCat->getCategoryName();
+
+    		$form->handleRequest($request);
+    		
+    		$this->requestLogging($form, $request, $subUserCat);
+    		
+    		if( $form->isValid() )
+    		{
+    			try
+    			{
+    				$subUserCat->setOwnerId($this->getUserId());
+    				$query = $userCatRep->storeCategoryIfNotExists($subUserCat);
+    				return $this->redirectToRoute('show_user_categories');
+    			}
+    			catch(UniqueConstraintViolationException $uniq_exep_categoryName)
+    			{
+    				$logger->error($uniq_exep_categoryName->getMessage());
+    				
+    				$error = "Dieser Kategorie-Name wird bereits verwendet.";
+    			}
+    		}
+    	}
+    	
+		return $this->render("BrainappCoreBundle:Dashboard:addUserSubCategory.html.twig",
+				array("c_mask_user_cat" => $form->createView(),
+					  "parentCatName" => $parentCatName,
+					  "error" => $error));
+    }
+    
+    private function requestLogging($form, $request, AbstractCategory $userCat)
+    {
+    	
+    	$logger = $this->get('logger');
+    	
     	date_default_timezone_set("UTC");
     	
     	
@@ -104,10 +173,6 @@ class DashboardAddUserCatController extends AbstractController
     	{
     		$logger->info("REQUEST_TYPE: Request is not POST.");
     	}
-    	
-    	
-    	
-    	
     	if($request->getMethod() == "GET")
     	{
     		$logger->info("REQUEST_TYPE: Request is GET.");

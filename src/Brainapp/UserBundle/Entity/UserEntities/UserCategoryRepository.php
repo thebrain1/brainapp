@@ -40,4 +40,9 @@ class UserCategoryRepository extends EntityRepository
 	{
 		return $this->findByCategoryName($categoryName);
 	}
+	
+	public function getUserCategoryByCategoryId($categoryId)
+	{
+		return $this->findOneByCategoryId($categoryId);
+	}
 }

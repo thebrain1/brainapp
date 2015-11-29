@@ -3,10 +3,14 @@
 {# override dashboardContent #}
 {% block dashboardContent %}
 	{% block addUserCategoryHeader %}
-		<h2 class='sub-header'>Neue Hauptkategorie anlegen</h2>
+		<h2 class='sub-header'>Fehler!</h2>
 	{% endblock %}
 
-	{% block addUserCategoryBody %}
-		{% include 'BrainappCoreBundle:Dashboard/Widgets:form_create_mainCategory.html.twig' %}
-	{% endblock %}
+	{% if  error is not null %}
+		<div class="form-group">
+			<div class="alert alert-danger" role="alert">	
+				{{ error }}
+			</div>
+		</div>
+	{%  endif %}
 {% endblock %}

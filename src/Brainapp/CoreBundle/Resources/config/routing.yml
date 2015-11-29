@@ -13,7 +13,11 @@ brainapp_core_dashboard_show_user_categories:
 add_user_main_category:
     path:  /home/usercategories/addcategory/main
     defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddUserCat:addUserMainCategory }
-    
+   
+add_user_sub_category:
+    path:  /home/usercategories/addcategory/sub/{parentCatId}
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddUserCat:addUserSubCategory }
+
 add_group_main_category:
     path:  /home/groupcategories/addcategory/main
     defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddGroupCat:addGroupMainCategory }
