@@ -56,6 +56,7 @@ header img {
 
 header .intro-text{
 	font-family: "open-sans-regular",Arial,Helvetica,sans-serif;
+	margin-bottom: 50px;
 }
 header .intro-text .name {
     display: block;
@@ -73,9 +74,6 @@ header .intro-text .subtitle {
 	header .container {
 	    padding-bottom: 100px;
 	    padding-top: 200px;
-	}
-	header .container .form-box{
-	   margin-top: -50px;
 	}
 	header .intro-text .name {
 	    font-size: 4.75em;
@@ -96,6 +94,15 @@ section.success {
     background: #408F9A none repeat scroll 0 0;
     color: #fff;
 }
+section.success a, 
+section.success a:hover,
+section.success a:focus,
+section.success a:active,
+section.success a.active {
+    color: #e20074;
+    font-family: "open-sans-regular",Arial,Helvetica,sans-serif;
+}
+
 @media (max-width: 767px) {
 	section {
 	    padding: 75px 0;

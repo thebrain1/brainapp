@@ -23,6 +23,21 @@ class DashboardController extends AbstractController
 	 */
     public function overviewAction()
     {
+        $user = $this->getUser();
+        if($user->getLastLogin() === null)
+            return $this->redirect($this->generateUrl('dashboard_first_login'));
+        
+    	return $this->concatWithUserDataArray();
+    }
+    
+	/**
+	 * Erster Login nach Registrierung
+	 *
+	 * @Route("/first-login", name="dashboard_first_login")
+	 * @Template("BrainappCoreBundle:Dashboard:firstLoginPage.html.twig")
+	 */
+    public function firstLoginAction()
+    {
     	return $this->concatWithUserDataArray();
     }
 }

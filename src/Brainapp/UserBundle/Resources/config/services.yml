@@ -12,3 +12,7 @@ services:
         arguments: ["@router"]
         tags:
             - { name: kernel.event_subscriber }
+            
+      authentication_handler:
+        class:        Brainapp\UserBundle\Handler\AuthenticationHandler
+        arguments:    ["@router", "@security.context", "@fos_user.user_manager", "@service_container"]

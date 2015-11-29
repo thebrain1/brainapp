@@ -1,0 +1,26 @@
+{% extends 'BrainappCoreBundle:Dashboard:default_dashboard.html.twig' %}
+
+{% block content %}
+<div class="container-fluid">
+      <div class="row">
+		{# MAIN block #}
+        <div class="col-xs-12 main">
+			<h2 class="sub-header">Erstanmeldung</h2>
+			<p>Hier sollte dann die initiale Konfiguration bei <strong>Erstanmeldung</strong> abgefragt werden.</p>
+			<p><a href="{{ path('dashboard_home') }}" class="btn btn-info btn-lg"><i class="fa fa-fw fa-dashboard"></i> Zum Dashboard</a></p>
+        </div>
+	</div>
+</div>
+{% endblock %}
+
+{# overrider FOOTER (clear) #}
+{% block footer %}{% endblock footer %}
+
+{# {% block javascripts %}#}
+{# 	{{ parent() }}#}
+{#     {% javascripts '@jqueryui_js' '@BrainappCoreBundle/Resources/public/js/classie.js' '@BrainappCoreBundle/Resources/public/js/default.js' %}#}
+{#         <script src="{{ asset_url }}"></script>#}
+{#     {% endjavascripts %}#}
+{# {% endblock %}#}
+
+          

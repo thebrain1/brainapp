@@ -1,6 +1,6 @@
 {% use "bootstrap_3_layout.html.twig" %}
 {% set label_attr = { 'class': 'sr-only' } %}
-<div class="col-sm-5 form-box">
+<div class="col-lg-5 col-md-5 col-xs-12 form-box">
 	<div class="form-top">
 		<div class="form-top-left">
 			<h3>Jetzt <span class="text-success">KOSTENLOS</span> registrieren</h3>
@@ -16,7 +16,9 @@
 {# 				<strong>Es ist ein Fehler aufgetreten!</strong> {{ form_errors(form) }}#}
 {# 			</div>#}
 		{{ form(form, { 'attr': { 'novalidate': 'novalidate'} }) }}
-			<a href="#login" class="btn btn-default btn-block page-scroll">Bereits registriert?</a>
+			{% if modal_login is defined %}	{% if modal_login  %}
+			<a href="" type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#loginModal">
+			{% else %}<a href="#login" type="button" class="btn btn-default btn-block page-scroll">{% endif %}{% endif %}Bereits registriert?</a>
 	</div>
 </div>
 

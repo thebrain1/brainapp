@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -19,8 +18,17 @@
 					<a href="#page-top"></a>
 				</li>
 				<li class="page-scroll">
+					<a href="#about">About</a>
+				</li>
+				{% if modal_login is defined %}{% if modal_login %}
+				<li class="">
+					<a href="" type="button" data-toggle="modal" data-target="#loginModal"><i class="fa fa-fw fa-lock"></i> Login</a>
+				</li>
+				{% else %}
+				<li class="page-scroll">
 					<a href="#login"><i class="fa fa-fw fa-lock"></i> Login</a>
 				</li>
+				{% endif %}{% endif %}
 			</ul>
 		</div>
 	</div>
