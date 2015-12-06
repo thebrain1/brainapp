@@ -4,20 +4,35 @@ brainapp_core_default:
     
 brainapp_core_dashboard:
     resource: "@BrainappCoreBundle/Controller/Dashboard/DashboardController.php"
-    type:     annotation 
+    type:     annotation
 
-brainapp_core_dashboard_show_user_categories:
-    resource: "@BrainappCoreBundle/Controller/Dashboard/DashboardShowUserCatController.php"
-    type:     annotation 
 
-add_user_main_category:
+# Beginn der Routen für MainCategories und SubCategories
+# Beginn der spezifischen Routen für MainCategories und SubCategories
+create_user_main_category:
     path:  /home/usercategories/addcategory/main
-    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddUserCat:addUserMainCategory }
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserCat:createUserMainCategory }
    
-add_user_sub_category:
-    path:  /home/usercategories/addcategory/sub/{parentCatId}
-    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddUserCat:addUserSubCategory }
+create_user_sub_category:
+    path:  /home/usercategories/addcategory/sub
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserCat:createUserSubCategory }
 
-add_group_main_category:
-    path:  /home/groupcategories/addcategory/main
-    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardAddGroupCat:addGroupMainCategory }
+show_user_main_categories:
+    path:  /home/usercategories/
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserCat:showUserMainCategories }
+    
+show_user_sub_categories:
+    path:  /home/usercategories/subcategories/{parentCatId}
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserCat:showUserSubCategories }
+# Ende der spezifischen Routen für MainCategories und SubCategories
+
+# Beginn der generischen Routen für MainCategories und SubCategories
+edit_user_category:
+    path:  /home/usercategories/editcategory
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserCat:editUserCategory }
+   
+delete_user_category:
+    path:  /home/usercategories/deletecategory
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserCat:deleteUserMainCategory }
+# Ende der generischen Routen für MainCategories und SubCategories
+# Ende der Routen für MainCategories und SubCategories

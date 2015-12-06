@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
 class GroupCategoryRepository extends EntityRepository
 {
 	//TODO: Auslagern
-	public function storeCategoryIfNotExists(GroupCategory $category)
+	public function storeCategory(GroupCategory $category)
 	{
 	
 		$result = $this->createQueryBuilder('c')

@@ -39,20 +39,21 @@ abstract class AbstractCategory
 	 */
 	protected $categoryName;
 	/**
-	 * @ORM\Column(name="parentCategoryId", type="integer", nullable=true, options={"default":null})
+	 * @ORM\ManyToOne(targetEntity="Brainapp\UserBundle\Entity\AbstractEntities\AbstractCategory")
+	 * @ORM\JoinColumn(name="parentCategory", referencedColumnName="categoryId", onDelete="CASCADE")
 	 */
-	protected $parentCategoryId;
+	protected $parentCategory;
 	
 	protected $ownerId;
 	
 	//Konstruktor
-	public function __construct($categoryName, $parentCategoryId=null)
+	public function __construct($categoryName, $parentCategory=null)
 	{
 		$this->categoryName = $categoryName;
 		
-		if(!(null==$parentCategoryId))
+		if(!(null==$parentCategory))
 		{
-			$this->parentCategoryId=$parentCategoryId;
+			$this->parentCategory=$parentCategory;
 		}		
 	}
 	
@@ -66,11 +67,40 @@ abstract class AbstractCategory
 	{
 		return $this->categoryId;
 	}
-	public function setParentCategoryId($parentCategoryId)
+	public function setCategoryId($categoryId)
 	{
-		$this->parentCategoryId = $parentCategoryId;
+ 		$this->categoryId = $categoryId;
 		return $this;
 	}
+	
+	public function getParentCategory() {
+		return $this->parentCategory;
+	}
+	public function setParentCategory($parentCategory)
+	{
+		$this->parentCategory = $parentCategory;
+		return $this;
+	}
+	public function getParentCategoryId()
+	{
+		$localParentCategory = $this->getParentCategory();
+		
+		if($localParentCategory != null)
+		{
+			return $localParentCategory->getCategoryId();
+		}
+		else
+		{
+			return null;
+		}
+	}
+	
+	//Dummy-Funktion die von Symfony beim Submit einer Form benötigt wird
+	//Aktuell wird die Form-Unterstützung von Symfony bei Kategorien nicht voll genutzt
+	//Die Werte eines neuen Kategorie-Objects werden manuell aus dem Request bezogen
+	//TODO: bei Bedarf auf Symfony-Formuntersützung umstellen
+	public function setParentCategoryId($parentCategoryId){}
+	
 	public function getCategoryName()
 	{
 		return $this->categoryName;
@@ -80,10 +110,8 @@ abstract class AbstractCategory
 		$this->categoryName = $categoryName;
 		return $this;
 	}
+	
 	public function getIsSubCategory() {
-		return ( ($this->parentCategoryId == null) ? false : true );
-	}
-	public function getParentCategoryId() {
-		return $this->parentCategoryId;
+		return ( ($this->parentCategory == null) ? false : true );
 	}
 }

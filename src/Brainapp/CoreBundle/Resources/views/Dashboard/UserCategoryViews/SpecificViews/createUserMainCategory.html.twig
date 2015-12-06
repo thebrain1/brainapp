@@ -1,0 +1,14 @@
+<div class="modal fade" id="modalMaskCreateUserMainCategory" role="dialog">
+	<div class="modal-dialog">
+	   <!-- Modal content-->
+	   <div class="modal-content">
+	     <div class="modal-header">
+	       <button type="button" class="close" data-dismiss="modal">&times;</button>
+	       <h4 class="modal-title">Hauptkategorie hinzuf&uuml;gen</h4>
+	     </div>
+			{{ form_start(mask_user_cat, {'action': path('create_user_main_category')} ) }}
+				{% include 'BrainappCoreBundle:Dashboard/UserCategoryViews/Widgets:widget_userCategory.html.twig' %}
+			{{ form_end(mask_user_cat) }}
+	   </div>
+	</div>
+</div>

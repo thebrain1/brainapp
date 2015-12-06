@@ -22,9 +22,9 @@ class GroupCategory extends AbstractCategory
 	 */
 	protected $ownerId;
 	
-	public function __construct($categoryName=null, $ownerId=null, $parentCategoryId=null)
+	public function __construct($categoryName=null, $ownerId=null, $parentCategory=null)
 	{
-		parent::__construct($categoryName,$parentCategoryId);
+		parent::__construct($categoryName,$parentCategory);
 		
 		$this->ownerId = $ownerId;
 	}

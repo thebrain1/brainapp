@@ -1,0 +1,51 @@
+{% extends 'BrainappCoreBundle:Dashboard:default_dashboard.html.twig' %}
+
+{# override dashboardContent #}
+{% block dashboardContent %}
+	{% block showUserCategoriesHeader %}
+	{% endblock %}
+	
+	<div class="table-responsive">
+	  <table class="table table-striped">
+	    <thead>
+	         <tr>
+	            <th>ID</th>
+	            <th>Name</th>
+	            <th></th>
+	         </tr>
+	       </thead>
+	       <tbody>
+				{% block showUserCategoriesCategoryTable %}
+				{% endblock %}
+	       </tbody>
+	  </table>
+	</div>
+	
+	<!-- Beginn der spezifischen Masken -->
+	{% block showUserCategoriesSpecificModals %}
+	{% endblock %}
+	<!-- Ende der spezifischen Masken -->
+	
+	<!-- Beginn der generischen modalen Masken (gelten für MainCategories und SubCategories) -->
+	<!-- Beginn der generischen modalen Maske zum Bearbeiten von UserCategories -->
+	{{ render(controller('BrainappCoreBundle:Dashboard/DashboardUserCat:editUserCategory')) }}
+	<!-- Ende der generischen modalen Maske zum Bearbeiten von UserCategories -->
+	
+	<!-- Beginn der generischen modalen Maske zum Löschen von UserCategories -->
+	{%  include 'BrainappCoreBundle:Dashboard/UserCategoryViews:deleteUserCategory.html.twig' %}
+	<!-- Ende der generischen modalen Maske zum Löschen von UserCategories -->
+	<!-- Ende der generischen modalen Masken (gelten für MainCategories und SubCategories) -->
+{% endblock %}
+
+{# override javascripts #}
+{% block javascripts %}
+	{{ parent() }}
+	
+	{# 	jQuery (JavaScript-Bibliothek) #}
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+	
+	{# 	jQuery-Script zum Manipulieren der Maskenlogik von UserCategories#}
+    {% javascripts '@BrainappCoreBundle/Resources/public/js/mainpulateUserCategoryMasks.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

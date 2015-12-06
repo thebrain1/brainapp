@@ -1,8 +1,8 @@
 <?php
 
-namespace Brainapp\CoreBundle\Form;
+namespace Brainapp\CoreBundle\Form\UserCategoryForm;
 
-use Brainapp\CoreBundle\Form\UserCategoryForm;
+use Brainapp\CoreBundle\Form\UserCategoryForm\AbstractUserCategoryFormType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -10,11 +10,10 @@ use Symfony\Component\Form\FormBuilderInterface;
  * @author Chris Schneider
  *
  */
-class SubUserCategoryForm extends UserCategoryForm
+class CreateUserSubCategoryForm extends AbstractUserCategoryFormType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		
 		parent::buildForm($builder, $options);
 		
 		$builder->add("parentCategoryId", "hidden");
@@ -22,6 +21,6 @@ class SubUserCategoryForm extends UserCategoryForm
 	
 	public function getName()
 	{
-		return "subUserCategoryForm";
+		return "createUserSubCategoryForm";
 	}
 }
