@@ -1,8 +1,8 @@
 <?php
 
-namespace Brainapp\UserBundle\Entity\GroupEntities;
+namespace Brainapp\CoreBundle\Entity\GroupEntities;
 
-use Brainapp\UserBundle\Entity\AbstractEntities\AbstractCategory;
+use Brainapp\CoreBundle\Entity\AbstractEntities\AbstractCategory;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *	
  * @author Chris Schneider
  *
- * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\GroupEntities\GroupCategoryRepository")
+ * @ORM\Entity(repositoryClass="Brainapp\CoreBundle\Entity\GroupEntities\GroupCategoryRepository")
  */
 class GroupCategory extends AbstractCategory
 {

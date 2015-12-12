@@ -36,3 +36,21 @@ delete_user_category:
     defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserCat:deleteUserMainCategory }
 # Ende der generischen Routen für MainCategories und SubCategories
 # Ende der Routen für MainCategories und SubCategories
+
+create_user_account:
+    path:  /home/useraccounts/createaccount
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserAccount:createUserAccount }
+
+show_user_accounts:
+    path:  /home/useraccounts
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserAccount:showUserAccounts }
+    
+# Beginn der generischen Routen für UserAccounts
+edit_user_account:
+    path:  /home/useraccounts/editaccount
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserAccount:editUserAccount }
+   
+delete_user_account:
+    path:  /home/useraccounts/deleteaccount
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserAccount:deleteUserAccount }
+# Ende der generischen Routen für UserAccounts

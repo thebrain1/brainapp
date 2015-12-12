@@ -1,9 +1,9 @@
 <?php
 
-namespace Brainapp\UserBundle\Entity\UserEntities;
+namespace Brainapp\CoreBundle\Entity\UserEntities;
 
+use Brainapp\CoreBundle\Entity\UserEntities\UserCategory;
 use Doctrine\ORM\EntityRepository;
-use Brainapp\UserBundle\Entity\UserEntities\UserCategory;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**

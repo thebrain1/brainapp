@@ -1,6 +1,6 @@
 <?php
 
-namespace Brainapp\UserBundle\Entity\GroupEntities;
+namespace Brainapp\CoreBundle\Entity\GroupEntities;
 
 use Doctrine\ORM\EntityRepository;
 

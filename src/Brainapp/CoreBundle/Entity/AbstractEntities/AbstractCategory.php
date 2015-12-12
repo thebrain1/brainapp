@@ -1,6 +1,6 @@
 <?php
 
-namespace Brainapp\UserBundle\Entity\AbstractEntities;
+namespace Brainapp\CoreBundle\Entity\AbstractEntities;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -15,7 +15,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="tbl_category")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap( {"user" = "Brainapp\UserBundle\Entity\UserEntities\UserCategory", "group" = "Brainapp\UserBundle\Entity\GroupEntities\GroupCategory"} )
+ * @ORM\DiscriminatorMap( {"user" = "Brainapp\CoreBundle\Entity\UserEntities\UserCategory", "group" = "Brainapp\CoreBundle\Entity\GroupEntities\GroupCategory"} )
  * @UniqueEntity(
  * 		fields={"categoryName","ownerId"},
  * 		errorPath="categoryName",
@@ -39,7 +39,7 @@ abstract class AbstractCategory
 	 */
 	protected $categoryName;
 	/**
-	 * @ORM\ManyToOne(targetEntity="Brainapp\UserBundle\Entity\AbstractEntities\AbstractCategory")
+	 * @ORM\ManyToOne(targetEntity="Brainapp\CoreBundle\Entity\AbstractEntities\AbstractCategory")
 	 * @ORM\JoinColumn(name="parentCategory", referencedColumnName="categoryId", onDelete="CASCADE")
 	 */
 	protected $parentCategory;

@@ -1,0 +1,23 @@
+<div class="modal-body">
+	<div role="form">
+		<div class="form-group">
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Kontoname </span>
+				{{ form_widget(mask_user_account.accountName) }}
+			</div>
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Startsaldo</span>
+				{{ form_widget(mask_user_account.accountStartValue) }}
+				<span class="input-group-addon" id="basic-addon2">&euro;</span>
+			</div>
+			<div class='input-group input-group input-widget'>
+				{{ form_widget(mask_user_account.accountIsDefaultAccount) }}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	{{ form_widget(mask_user_account.save) }}
+    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+</div>
+

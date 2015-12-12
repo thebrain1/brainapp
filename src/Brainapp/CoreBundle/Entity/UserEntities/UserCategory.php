@@ -1,9 +1,9 @@
 <?php
 
-namespace Brainapp\UserBundle\Entity\UserEntities;
+namespace Brainapp\CoreBundle\Entity\UserEntities;
 
-use Brainapp\UserBundle\Entity\AbstractEntities\AbstractCategory;
-use Brainapp\UserBundle\Entity\UserEntities\UserCategoryRepository;
+use Brainapp\CoreBundle\Entity\AbstractEntities\AbstractCategory;
+use Brainapp\CoreBundle\Entity\UserEntities\UserCategoryRepository;
 use Brainapp\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @author Chris Schneider
  *
- * @ORM\Entity(repositoryClass="Brainapp\UserBundle\Entity\UserEntities\UserCategoryRepository")
+ * @ORM\Entity(repositoryClass="Brainapp\CoreBundle\Entity\UserEntities\UserCategoryRepository")
  */
 class UserCategory extends AbstractCategory
 {

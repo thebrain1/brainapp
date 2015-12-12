@@ -1,8 +1,6 @@
 <?php
 
-namespace Brainapp\UserBundle\Entity\AbstractEntities;
-
-use Doctrine\ORM\Mapping as ORM;
+namespace Brainapp\CoreBundle\Entity\AbstractEntities;
 
 /**
  * AbstractBudget

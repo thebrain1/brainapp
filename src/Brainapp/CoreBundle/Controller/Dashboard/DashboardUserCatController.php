@@ -3,7 +3,7 @@
 namespace Brainapp\CoreBundle\Controller\Dashboard;
 
 use Brainapp\CoreBundle\Controller\AbstractController;
-use Brainapp\UserBundle\Entity\UserEntities\UserCategory;
+use Brainapp\CoreBundle\Entity\UserEntities\UserCategory;
 
 use Brainapp\CoreBundle\Form\UserCategoryForm\EditUserCategoryForm;
 use Brainapp\CoreBundle\Form\UserCategoryForm\CreateUserMainCategoryForm;
@@ -208,6 +208,6 @@ class DashboardUserCatController extends AbstractController
     private function getUserCategoryRep()
     {
     	$em = $this->getDoctrine()->getManager();
-    	return $em->getRepository('Brainapp\UserBundle\Entity\UserEntities\UserCategory');
+    	return $em->getRepository('Brainapp\CoreBundle\Entity\UserEntities\UserCategory');
     }
 }
