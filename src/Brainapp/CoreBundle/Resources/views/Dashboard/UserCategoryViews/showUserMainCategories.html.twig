@@ -2,7 +2,7 @@
 
 {# override showUserCategoriesHeader #}
 {% block showUserCategoriesHeader %}
-<h1 class="page-header">Kategorien von {{ username }} ({{ userid }})</h1>
+<h1 class="page-header">Kategorien von {{ username }}</h1>
 <div class="row placeholders">
   <div class="col-xs-6 col-sm-3 placeholder">
   	<p><a class="btn btn-primary btn-lg btn-add-maincat" href="#" role="button" data-toggle="modal" data-target="#modalMaskCreateUserMainCategory">Hauptkategorie hinzuf&uuml;gen</a></p>
@@ -14,7 +14,7 @@
 {% block showUserCategoriesCategoryTable %}
             {% for cat in userCategories %}
               <tr>
-                 <td width="3%" align="right">{{ cat.categoryId }}</td>
+{#                  <td width="3%" align="right">{{ cat.categoryId }}</td>#}
                  <td width="80%">{{ cat.categoryName }}</td>
                  <td width="17%">
                     <div class="btn-group" role="group" aria-label="...">

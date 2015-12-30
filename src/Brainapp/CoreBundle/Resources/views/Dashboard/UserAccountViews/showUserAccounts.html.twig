@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets '@BrainappCoreBundle/Resources/public/css/userAccounts.css' filter="cssrewrite" %}
+    {% stylesheets '@BrainappCoreBundle/Resources/public/css/panelBoxStyle.css' filter="cssrewrite" %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
 {% endblock %}
@@ -10,7 +10,7 @@
 {# override dashboardContent #}
 {% block dashboardContent %}
 
-<h1 class="page-header">Konten von {{ username }} ({{ userid }})</h1>
+<h1 class="page-header">Konten von {{ username }}</h1>
 <div class="row placeholders">
   <div class="col-xs-6 col-sm-3 placeholder">
   	<p><a class="btn btn-primary btn-lg btn-add-maincat" href="#" role="button" data-toggle="modal" data-target="#modalMaskCreateUserAccount">Konto hinzuf&uuml;gen</a></p>
@@ -19,11 +19,11 @@
 
 <!-- Panel-Box für Kontos -->
 	   {% for acc in userAccounts %}
-                <div class="panel panel-default panel-account">
+                <div class="panel panel-default panel-table">
                   <!-- Panel für Name eines Kontos und Action-Buttons -->
-                  <div class="panel-heading panel-heading-account">
-                        <div class="data-account-name"><strong>{{ acc.accountName }}</strong> {% if acc.accountIsDefaultAccount == true %}<i>(Standardkonto)</i>{% endif %}</div>
-                        <div class="btn-group btn-group-account" role="group">
+                  <div class="panel-heading panel-table-heading">
+                        <div class="data-panel-table-headline"><strong>{{ acc.accountName }}</strong> {% if acc.accountIsDefaultAccount == true %}<i>(Standardkonto)</i>{% endif %}</div>
+                        <div class="btn-group btn-group-panel-table" role="group">
                             <button type="button" class="btn btn-default btn-delete-account" data-toggle="modal" data-target="#modalMaskDeleteAccount" data-accId="{{ acc.accountId }}" data-accName="{{ acc.accountName }}">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>    
@@ -41,22 +41,21 @@
                         </tr>
                         <tr>
                             <td>Kontostand (heute)</td>
-                            <td align="right" class="data-currency">{{ acc.accountCurrentValue }}</td>
+                            <td align="right" class="data-currency data-balance">{{ acc.accountCurrentValue }}</td>
                         </tr>
                         <tr>
-                            <td><i><font color="red">* TODO </font></i></font>Kontostand (Monatsende)</td>
-                            <td align="right" class="data-currency">2854.64</td>
+                            <td>Kontostand (Monatsende)</td>
+                            <td align="right" class="data-currency data-balance">{{ acc.accountValueMonatsEnde }}</td>
                         </tr>
                         <tr>
-                            <td><i><font color="red">* TODO </font></i></font>Monatssaldo</td>
-                            <td align="right" class="data-currency data-accountBalance">1784,78</td>
+                            <td>Monatssaldo <i>({{ monatsAnfang }} - {{ monatsEnde }})</i></td>
+                            <td align="right" class="data-currency data-balance">{{ acc.accountMonatsSaldo }}</td>
                         </tr>
                     </tbody>
                   </table>
                 </div>
 	   {% endfor %}
-	   <p><i><font color="red">* Diese Funktionalität ist noch nicht fertig implementiert. Die markierten Felder sollen dynamisch berechnet werden und alle geplanten Ausgaben (z.B. von 
-	   Daueraufträge) berücksichtigen.</font></i></font></p>
+	   
 	<!-- Beginn der modalen Maske zum Hinzufügen von UserAccounts -->
 	{{ render(controller('BrainappCoreBundle:Dashboard/DashboardUserAccount:createUserAccount')) }}
 	<!-- Ende der modalen Maske zum Hinzufügen von UserAccounts -->
@@ -82,7 +81,7 @@
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
     
-    {% javascripts '@BrainappCoreBundle/Resources/public/js/showUserAccount.js' %}
+    {% javascripts '@BrainappCoreBundle/Resources/public/js/manipulateShowCurrency.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}

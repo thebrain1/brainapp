@@ -76,7 +76,7 @@ class UserAccountRepository extends EntityRepository
 	{
 		$logPrefix = $this->getClassLogPrefix() . "deleteUserAccountById::";
 	
-		if($accountId != null)
+		if(!is_null($accountId))
 		{
 			$userAcc = $this->getUserAccountByAccountId($accountId);
 	

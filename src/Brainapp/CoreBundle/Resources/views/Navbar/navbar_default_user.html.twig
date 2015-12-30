@@ -7,19 +7,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="{{ path('dashboard_home') }}" class="navbar-brand">Brainapp</a>
+          <a href="{{ path('show_buchungen') }}" class="navbar-brand">Brainapp</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Einstellungen</a></li>
-            <li><a href="#">Profil</a></li>
-            <li><a href="#">Hilfe</a></li>
+            <li><a href="{{ path('dashboard_first_login') }}">Erste Schritte</a></li>
+{#             <li><a href="#">Einstellungen</a></li>#}
+{#             <li><a href="#">Profil</a></li>#}
+{#             <li><a href="#">Hilfe</a></li>#}
             <li><a href="{{ path('logout') }}"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" placeholder="Suchbegriff eingeben..." class="form-control">
-          </form>
         </div>
       </div>
     </nav>

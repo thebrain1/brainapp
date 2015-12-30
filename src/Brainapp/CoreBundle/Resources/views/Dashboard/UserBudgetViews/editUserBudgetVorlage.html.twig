@@ -1,0 +1,14 @@
+<div class="modal fade" id="modalMaskEditUserBudgetVorlage" role="dialog">
+	<div class="modal-dialog">
+	   <!-- Modal content-->
+	   <div class="modal-content">
+	     <div class="modal-header">
+	       <button type="button" class="close" data-dismiss="modal">&times;</button>
+	       <h4 class="modal-title">Budget bearbeiten</h4>
+	     </div>
+			{{ form_start(mask_user_budget_vorlage, {'action': path('edit_user_budget_vorlage')} ) }}
+				{% include 'BrainappCoreBundle:Dashboard/UserBudgetViews/Widgets:widget_editUserBudgetVorlage.html.twig' %}
+         	{{ form_end(mask_user_budget_vorlage) }}
+       </div>
+    </div>
+</div>

@@ -1,26 +1,19 @@
 @CHARSET "ISO-8859-1";
 
-/** Anzeige der UserAccounts (Konten von Usern) **/
- .panel-account
+
+ .panel-table
  {
      margin-bottom: 20px;
      max-width: 600px;
  }
- .panel-heading-account
+ .panel-table-heading
  {
      overflow: auto;
  }
- .btn-group-account
+ .btn-group-panel-table
  {
      float: right;
      margin-left: 10px;
- }
- 
- .data-account-name
- {
-     float: left;
-     font-size: 1.5em;
-     font-weight: bold;
  }
  
  .input-group-widgetlabel
@@ -33,4 +26,11 @@
  {
  	margin-bottom: 5px;
  	width: 100%;
+ }
+ 
+ .data-panel-table-headline
+ {
+     float: left;
+     font-size: 1.5em;
+     font-weight: bold;
  }

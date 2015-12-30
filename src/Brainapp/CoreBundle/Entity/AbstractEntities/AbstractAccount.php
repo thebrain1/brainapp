@@ -25,27 +25,27 @@ abstract class AbstractAccount
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	protected $accountId;
-	
 	/**
 	 * @ORM\Column(name="accountName", type="string")
 	 */
 	protected $accountName;
-	
 	/**
 	 * @ORM\Column(name="accountCurrentValue", type="float", options={"default" = 0.0})
 	 */
 	protected $accountCurrentValue;
-	
+	protected $accountValueMonatsEnde;
+	protected $accountMonatsSaldo;
 	/**
 	 * @ORM\Column(name="accountStartValue", type="float", options={"default" = 0.0})
 	 */
 	protected $accountStartValue;
-	
 	/**
 	 * @ORM\Column(name="accountIsDefaultAccount", type="boolean", options={"default" = false})
 	 */
 	protected $accountIsDefaultAccount;
-	
+	/**
+	 * @ORM\Column(name="ownerId", type="integer"))
+	 */
 	protected $ownerId;
 	
 	public function getAccountId() {
@@ -68,7 +68,23 @@ abstract class AbstractAccount
 		return $this->accountCurrentValue;
 	}
 	public function setAccountCurrentValue($accountCurrentValue) {
-		$this->accountCurrentValue = $accountCurrentValue;
+		$this->accountCurrentValue = round($accountCurrentValue,2);
+		return $this;
+	}
+	
+	public function getAccountValueMonatsEnde() {
+		return $this->accountValueMonatsEnde;
+	}
+	public function setAccountValueMonatsEnde($accountValueMonatsEnde) {
+		$this->accountValueMonatsEnde = round($accountValueMonatsEnde,2);
+		return $this;
+	}
+	
+	public function getAccountMonatsSaldo() {
+		return $this->accountMonatsSaldo;
+	}
+	public function setAccountMonatsSaldo($accountMonatsSaldo) {
+		$this->accountMonatsSaldo = round($accountMonatsSaldo,2);
 		return $this;
 	}
 	
@@ -76,7 +92,7 @@ abstract class AbstractAccount
 		return $this->accountStartValue;
 	}
 	public function setAccountStartValue($accountStartValue) {
-		$this->accountStartValue = $accountStartValue;
+		$this->accountStartValue = round($accountStartValue,2);
 		return $this;
 	}
 	
@@ -88,17 +104,5 @@ abstract class AbstractAccount
 	{
 		$this->accountIsDefaultAccount = $accountIsDefaultAccount;
 		return $this->accountIsDefaultAccount;
-	}
-	
-// 	public function getOwnerId() {
-// 		return $this->ownerId;
-// 	}
-// 	public function setOwnerId($ownerId) {
-// 		$this->ownerId = $ownerId;
-// 		return $this;
-// 	}
-	
-	
-	
-	
+	}	
 }

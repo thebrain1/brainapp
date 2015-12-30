@@ -19,7 +19,6 @@ class UserCategoryRepository extends EntityRepository
 		return "UserCategoryRepository::";
 	}
 	
-	//TODO: Auslagern
 	public function storeCategory(UserCategory $category)
 	{
 		$logPrefix = $this->getClassLogPrefix() . "storeCategory::";
@@ -49,8 +48,8 @@ class UserCategoryRepository extends EntityRepository
 			$expr = $queryBuilder->expr();
 			
 			$query = $queryBuilder->add('where', $expr->andX($expr->eq('c.ownerId', $ownerId),
-					                                         $expr->isNull('c.parentCategory'))
-					                   );
+					                                         $expr->isNull('c.parentCategory')))
+					              ->orderBy('c.categoryName');
 			
 			return $query->getQuery()->getResult();
 		}
@@ -71,7 +70,8 @@ class UserCategoryRepository extends EntityRepository
 			$queryBuilder = $this->createQueryBuilder('c');
 			$expr = $queryBuilder->expr();
 			 
-			$query = $queryBuilder->add('where', $expr->eq('c.parentCategory', $parentCategoryId));
+			$query = $queryBuilder->add('where', $expr->eq('c.parentCategory', $parentCategoryId))
+			                      ->orderBy('c.categoryName');
 			 
 			return $query->getQuery()->getResult();
 		}
@@ -79,20 +79,6 @@ class UserCategoryRepository extends EntityRepository
 		{
 			throw new HttpException(400, $logPrefix . "Parameter 'parentCategoryId' is null");
 		}	
-	}
-	
-	public function getUserCategoryByCategoryName($categoryName)
-	{
-		$logPrefix = $this->getClassLogPrefix() . "getUserCategoryByCategoryName::";
-		
-		if($categoryName != null)
-		{
-			return $this->findByCategoryName($categoryName);
-		}
-		else
-		{
-			throw new HttpException(400, $logPrefix . "Parameter 'categoryName' is null");
-		}
 	}
 	
 	public function getUserCategoryByCategoryId($categoryId)

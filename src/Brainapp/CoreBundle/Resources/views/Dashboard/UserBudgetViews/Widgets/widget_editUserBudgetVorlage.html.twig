@@ -1,0 +1,12 @@
+{% extends 'BrainappCoreBundle:Dashboard/UserBudgetViews/Widgets:widget_userBudgetVorlage.html.twig' %}
+
+
+{% block additionalFields %}
+     <fieldset>
+         <legend>Änderungsumfang festlegen</legend>
+         <div class='input-group input-group input-widget'>
+              <span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Änderungsumfang</span>
+              {{ form_widget(mask_user_budget_vorlage.changingScope) }}
+         </div>
+     </fieldset>
+{% endblock %}

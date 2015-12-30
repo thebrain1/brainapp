@@ -41,4 +41,13 @@ class UserCategory extends AbstractCategory
 		$this->ownerId = $ownerId;
 		return $this;
 	}
+	
+	public function getInstanceOfSubCategory()
+	{
+		$subCategory = new UserCategory();
+		$subCategory->setParentCategory($this);
+		$subCategory->setOwnerId($this->getOwnerId());
+		
+		return $subCategory;
+	}
 }

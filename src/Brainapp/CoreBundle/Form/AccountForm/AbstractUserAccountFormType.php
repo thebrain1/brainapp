@@ -18,10 +18,6 @@ abstract class AbstractUserAccountFormType extends AbstractType
                                                     'attr' => array('class' => 'form-control',
                                                                     'placeholder' => 'Kontoname',
                                                                     'aria-describedby' => 'sizing-addon2')))
-                ->add("accountStartValue", "number", array('label' => 'Startsaldo',
-                                                           'attr' => array('class' => 'form-control',
-                                                                           'placeholder' => 'Startsaldo',
-                                                                           'aria-describedby' => 'sizing-addon2')))
                 ->add("accountIsDefaultAccount", "checkbox", array('label' => 'ist Standardkonto',
                                                                    'required' => false))
                 ->add("accountId", "hidden")

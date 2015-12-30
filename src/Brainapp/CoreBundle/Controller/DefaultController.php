@@ -30,7 +30,7 @@ class DefaultController extends Controller
     	// Weiterleitung auf Dashboard, wenn Benutzer bereits angemeldet
     	$securityContext = $this->container->get('security.authorization_checker');
     	if ($securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
-    		return $this->redirect($this->generateUrl('dashboard_home'));
+    		return $this->redirect($this->generateUrl('show_buchungen'));
     	
     	// sonst: erstelle Login
     	if ($this->has('security.csrf.token_manager')) 

@@ -1,0 +1,8 @@
+{% extends 'BrainappCoreBundle:Dashboard/BuchungViews/Widgets:widget_buchung.html.twig' %}
+
+{% block additionalFields %}
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Zielkonto</span>
+				{{ form_widget(mask_buchung.targetAccount) }}
+			</div>
+{% endblock %}

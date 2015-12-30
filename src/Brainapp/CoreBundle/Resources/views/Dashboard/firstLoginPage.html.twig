@@ -5,9 +5,33 @@
       <div class="row">
 		{# MAIN block #}
         <div class="col-xs-12 main">
-			<h2 class="sub-header">Erstanmeldung</h2>
-			<p>Hier sollte dann die initiale Konfiguration bei <strong>Erstanmeldung</strong> abgefragt werden.</p>
-			<p><a href="{{ path('dashboard_home') }}" class="btn btn-info btn-lg"><i class="fa fa-fw fa-dashboard"></i> Zum Dashboard</a></p>
+			<h2 class="sub-header">Erste Schritte</h2>
+			<p>Herzlich Willkommen und vielen Dank für Ihre Registrierung! Im Folgenden werden erste Schritte zur Nutzung unseres Haushaltsbuches empfohlen.</p>
+			<h3 class="sub-header">1. Konto anlegen</h3>
+			<p>Damit Sie später wissen, wieviel Geld Sie im Moment sowie am Ende eines Monats zur Verfügung haben, sollten Sie zuerst ein Konto anlegen.</p>
+			<p><a href="{{ path('show_user_accounts') }}" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-piggy-bank"></i>  Zur Kontoverwaltung</a></p>
+			
+			<h3 class="sub-header">2. Kategorien festlegen</h3>
+			<p>Kategorien sind eine wichtige Komponente unseres Haushaltsbuchs. Diese klassifizieren Buchungen und werden später verwendet, um die von Ihnen erstellen Budgets zu aktualisieren. 
+			Unterschieden wird dabei in Haupt- und deren Unterkategorien.</p>
+			<p><a href="{{ path('show_user_main_categories') }}" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-tags"></i>  Zur Kategorieverwaltung</a></p>
+			
+			<h3 class="sub-header">3. Budgets definieren</h3>
+			<p>Mit der Budget-Funktion haben Sie Ihre Ausgaben immer im Blick und können der gähnende Leere des Portemonnaies am Monatsende effektiv entgegenwirken. 
+			Legen Sie hierzu in der Budgetverwaltung Vorlagen von Budgets an, die insbesondere durch die ausgewählte Kategorie, den Betrag und einen Turnus definiert werden. 
+			Dieser Turnus gibt an, wann das jeweilige Budget zurückgesetzt bzw. ein neuer Budget-Zeitraum beginnen soll. Aktuell können Sie dabei zwischen einer monatlichen 
+			und einer wöchentlichen Zurücksetzung wählen sowie den gewünschten Tag präzise festlegen.</p>
+			<p>In der Budgetstatistik können Sie später den aktuellen Stand Ihrer Budgets für einen ausgewählten Monat einsehen. Der jeweilige Verbrauch wird 
+			dabei in Form eines Balkendiagramm visualisiert. Wenn Sie den Mauszeiger über dieses Balkendiagramm bewegen, können Sie die Summe der Ausgaben einsehen, 
+			die in dem betreffenden Zeitraum für dieses Budget existieren.</p>
+			<p>
+				<a href="{{ path('show_user_budget_vorlagen') }}" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-signal"></i>  Zur Budgetverwaltung</a>
+				<a href="{{ path('show_user_budgets_for_month') }}" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-dashboard"></i>  Zur Budgetstatistik</a>
+			</p>
+			<h3 class="sub-header">4. Buchungen erstellen</h3>
+			<p>Eine Buchung spiegelt eine getätigte Transaktion wider und kann die Ausprägung einer Einnahme, einer Ausgabe oder einer Umbuchung annehmen. Charakterisiert wird eine Buchung immer durch einen
+			Buchungstitel, das Datum der Transaktion, ein Konto sowie den Betrag der Buchung. Umbuchungen dienen dazu, eine Transaktion von einem Ihrer Kontos auf ein anderes zu erfassen. Die Summe aller Kontostände bleibt dabei unverändert.</p>
+			<p><a href="{{ path('show_buchungen') }}" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-list-alt"></i>  Zu den Buchungen</a></p>
         </div>
 	</div>
 </div>

@@ -4,6 +4,7 @@ namespace Brainapp\CoreBundle\Controller\Dashboard;
 
 use Brainapp\CoreBundle\Controller\AbstractController;
 use Brainapp\CoreBundle\Entity\UserEntities\UserAccount;
+use Brainapp\CoreBundle\Entity\UserEntities\BuchungEinnahme;
 
 use Brainapp\CoreBundle\Form\AccountForm\CreateUserAccountFormType;
 use Brainapp\CoreBundle\Form\AccountForm\EditUserAccountFormType;
@@ -23,9 +24,30 @@ class DashboardUserAccountController extends AbstractController
 	
 		$userId=$this->getUserId();
 		$userAccounts=$userAccRep->getUserAccountsByOwnerId($userId);
+		
+		$buchungRep = $this->getBuchungRep();
+		
+		foreach($userAccounts as $account)
+		{
+			//ERMITTLE KONTOSTAND AM HEUTIGEN TAG
+			$heute = date("Y-m-d");
+			$account->setAccountCurrentValue($buchungRep->getSumOfBuchungValuesByAccountAndDatePairs($account, array("<=", $heute)));
+			
+			//ERMITTLE KONTOSTAND AM MONATSENDE
+			$monatsEnde = date("Y-m-31");			
+			$accValueMonatsEnde = $buchungRep->getSumOfBuchungValuesByAccountAndDatePairs($account, array("<=", $monatsEnde));
+			$account->setAccountValueMonatsEnde($accValueMonatsEnde);
+			
+			//ERMITTLE MONATSSALDO
+			$monatsAnfang = date("Y-m-01");
+			$accValueMonatsAnfang = $buchungRep->getSumOfBuchungValuesByAccountAndDatePairs($account, array("<", $monatsAnfang));
+			$accValueMonatsEnde   = $buchungRep->getSumOfBuchungValuesByAccountAndDatePairs($account, array("<=", $monatsEnde));
+			$saldo = $accValueMonatsEnde - $accValueMonatsAnfang;
+			$account->setAccountMonatsSaldo($saldo);
+		}
 	
 		return $this->render("BrainappCoreBundle:Dashboard/UserAccountViews:showUserAccounts.html.twig",
-				$this->concatWithUserDataArray(array("userAccounts" => $userAccounts)));
+				$this->concatWithUserDataArray(array("userAccounts" => $userAccounts, "monatsAnfang" => date("01.m.Y"), "monatsEnde" => date("31.m.Y"))));
 	}
 	
 	public function createUserAccountAction(Request $request)
@@ -45,8 +67,19 @@ class DashboardUserAccountController extends AbstractController
 			$userAccount->setAccountCurrentValue($userAccount->getAccountStartValue());
 			
 			$userAccRep->storeAccount($userAccount);
+			$buchungRep = $this->getBuchungRep();
+			
+			//INITIALE BUCHUNG
+			$startWertBuchung = new BuchungEinnahme();
+			$startWertBuchung->setAccount($userAccount);
+			$startWertBuchung->setTitle("Initiale Buchung");
+			$startWertBuchung->setComment("Diese Buchung wurde vom System erstellt.");
+			$startWertBuchung->setDate(new \DateTime(date("Y-m-d")));
+			$startWertBuchung->setValue($userAccount->getAccountStartValue());
+			
+			$buchungRep->storeBuchung($startWertBuchung);
+			
 			return $this->redirectToRoute('show_user_accounts');
-
 		}
 		
 		return $this->render("BrainappCoreBundle:Dashboard/UserAccountViews/SpecificViews:createUserAccount.html.twig",
@@ -63,8 +96,6 @@ class DashboardUserAccountController extends AbstractController
 	public function editUserAccountAction(Request $request)
 	{
 		$logger = $this->get('logger');
-	
-		$originUrl = $request->headers->get('referer');
 	
 		$error = null;
 	
@@ -83,7 +114,7 @@ class DashboardUserAccountController extends AbstractController
 				$this->getUserAccountRep()
 				     ->editAccountUpdate($userAcc);
 				
-				return $this->redirect($originUrl);
+				return $this->redirectToRoute('show_user_accounts');
 			}
 			catch(UniqueConstraintViolationException $uniq_exep_accountName)
 			{
@@ -101,13 +132,12 @@ class DashboardUserAccountController extends AbstractController
 	public function deleteUserAccountAction(Request $request)
 	{
 		$accountId = $request->request->get('#ff_accountId');
-		 
-		$originUrl = $request->headers->get('referer');
+		
 		 
 		$this->getUserAccountRep()
 		     ->deleteUserAccountByAccountId($accountId);
 	
-		return $this->redirect($originUrl);
+		return $this->redirectToRoute('show_user_accounts');
 	}
 	
 	/* #####################################################################
@@ -121,4 +151,10 @@ class DashboardUserAccountController extends AbstractController
 		$em = $this->getDoctrine()->getManager();
 		return $em->getRepository('Brainapp\CoreBundle\Entity\UserEntities\UserAccount');
 	}
+	
+	private function getBuchungRep()
+	{
+		$em = $this->getDoctrine()->getManager();
+		return $em->getRepository('Brainapp\CoreBundle\Entity\AbstractEntities\AbstractBuchung');
+	}	
 }

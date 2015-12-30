@@ -1,0 +1,62 @@
+{% block stylesheets %}
+{#     {{ parent() }}#}
+    
+{#     {% stylesheets '@BrainappCoreBundle/Resources/public/css/bootstrap-select-1.9.3/dist/css/bootstrap-select.css' filter="cssrewrite" %}#}
+{#         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>#}
+{#     {% endstylesheets %}#}
+{% endblock %}
+
+<div class="modal-body">
+	<div role="form">
+		<div class="form-group">
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Name</span>
+				{{ form_widget(mask_user_budget_vorlage.budgetName) }}
+			</div>
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Kommentar</span>
+				{{ form_widget(mask_user_budget_vorlage.budgetComment) }}
+			</div>
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Betrag</span>
+				{{ form_widget(mask_user_budget_vorlage.budgetValue) }}
+				<span class="input-group-addon" id="basic-addon2">&euro;</span>
+			</div>
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Kategorien</span>
+				{{ form_widget(mask_user_budget_vorlage.category) }}
+			</div>
+			<div class='input-group input-group input-widget'>
+				<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Account</span>
+				{{ form_widget(mask_user_budget_vorlage.account) }}
+			</div>
+			<fieldset>
+				<legend>Regel zum Zurücksetzen des Budgets:</legend>
+				<div class='input-group input-group input-widget'>
+					<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Turnus</span>
+					{{ form_widget(mask_user_budget_vorlage.resetPeriod) }}
+				</div>
+				<div class='input-group input-group input-widget'>
+					<span class='input-group-addon input-group-widgetlabel' id='sizing-addon2'>Datum</span>
+					{{ form_widget(mask_user_budget_vorlage.resetTriggerDate) }}
+				</div>
+			</fieldset>
+				{% block additionalFields %}
+				{% endblock %}
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+  {{ form_widget(mask_user_budget_vorlage.save) }}
+  <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button> 
+</div>
+
+{# override javascripts #}
+{% block javascripts %}
+	{# 	jQuery (JavaScript-Bibliothek) #}
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    
+{#     {% javascripts '@BrainappCoreBundle/Resources/public/css/bootstrap-select-1.9.3/dist/js/bootstrap-select.js' %}#}
+{#         <script src="{{ asset_url }}"></script>#}
+{#     {% endjavascripts %}#}
+{% endblock %}

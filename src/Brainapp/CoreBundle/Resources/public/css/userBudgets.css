@@ -1,0 +1,19 @@
+@CHARSET "ISO-8859-1";
+
+.canvasBudgetBalance
+{
+	border: 1px solid black;
+	width: 400px;
+	height: 30px; 
+}
+
+.panel-tbl-budget
+{
+	min-width: 600px;
+	max-width: 600px;
+}
+
+#budgetPlaceholder
+{
+	margin-top: 15px;
+}

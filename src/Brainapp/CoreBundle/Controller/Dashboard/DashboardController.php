@@ -19,15 +19,15 @@ class DashboardController extends AbstractController
 	 * Läd Dashboard
 	 *
 	 * @Route("/", name="dashboard_home")
-	 * @Template("BrainappCoreBundle:Dashboard:overview.html.twig")
 	 */
     public function overviewAction()
     {
         $user = $this->getUser();
         if($user->getLastLogin() === null)
             return $this->redirect($this->generateUrl('dashboard_first_login'));
-        
-    	return $this->concatWithUserDataArray();
+        else
+            return $this->redirect($this->generateUrl('show_buchungen'));
+    	//return $this->concatWithUserDataArray();
     }
     
 	/**

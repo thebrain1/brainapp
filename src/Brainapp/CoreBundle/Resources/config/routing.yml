@@ -54,3 +54,75 @@ delete_user_account:
     path:  /home/useraccounts/deleteaccount
     defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserAccount:deleteUserAccount }
 # Ende der generischen Routen für UserAccounts
+# Beginn der Routen für UserBudgetVorlagen
+show_user_budget_vorlagen:
+    path:  /home/userbudget/vorlagen
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserBudgetVorlage:showUserBudgetVorlagen }
+
+create_user_budget_vorlage:
+    path:  /home/userbudget/createbudget
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserBudgetVorlage:createUserBudgetVorlage }
+    
+edit_user_budget_vorlage:
+    path:  /home/userbudget/editbudget
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserBudgetVorlage:editUserBudgetVorlage }
+    
+get_user_budget_vorlage_data_as_json:
+    path:  /home/userbudget/getDataAsJson/{budgetVorlageId}
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserBudgetVorlage:getUserBudgetDataAsJson }
+    
+delete_user_budget_vorlage:
+    path:  /home/userbudget/deletebudget
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardUserBudgetVorlage:deleteUserBudgetVorlage }
+    
+show_user_budgets_for_month:
+    path: /home/userbudget
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBudget:showBudgets } 
+
+## <Chris Schneider, 28.12.2015, kann Route entfernt werden?>
+show_user_budgets_for_year_and_month:
+    path: /home/userbudget/{year}/{month}
+    defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBudget:showBudgets }
+## </Chris Schneider, 28.12.2015, kann Route entfernt werden?>
+
+# Ende der Routen für UserBudgetVorlagen
+# Beginn der Routen für Buchungen
+show_buchungen:
+  path: /home/userbuchungen
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:showBuchungen }
+
+show_buchungen_without_category:
+  path: /home/userbuchungen/noCategory
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:showBuchungenWithoutCategory }
+  
+create_buchungen_einnahme:
+  path: /home/userBuchungen/createEinnahme
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:createEinnahme }
+  
+create_buchungen_ausgabe:
+  path: /home/userBuchungen/createAusgabe
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:createAusgabe }
+  
+create_buchungen_umbuchung:
+  path: /home/userBuchungen/createUmbuchung
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:createUmbuchung }
+  
+get_edit_mask_buchung:
+  path: /home/userBuchungen/getEditMask/{id}
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:getEditMaskAsHtml }
+  
+edit_buchung_einnahme:
+  path: /home/userBuchungen/edit/einnahme
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:editBuchungEinnahme }
+  
+edit_buchung_ausgabe:
+  path: /home/userBuchungen/edit/ausgabe
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:editBuchungAusgabe }
+
+edit_buchung_umbuchung:
+  path: /home/userBuchungen/edit/ausgabe
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:editBuchungUmbuchung }
+  
+delete_buchung:
+  path: /home/userBuchungen/delete
+  defaults: { _controller: BrainappCoreBundle:Dashboard/DashboardBuchung:deleteBuchung }

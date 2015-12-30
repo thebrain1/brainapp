@@ -43,7 +43,9 @@ abstract class AbstractCategory
 	 * @ORM\JoinColumn(name="parentCategory", referencedColumnName="categoryId", onDelete="CASCADE")
 	 */
 	protected $parentCategory;
-	
+	/**
+	 * @ORM\Column(name="ownerId", type="integer"))
+	 */
 	protected $ownerId;
 	
 	//Konstruktor
