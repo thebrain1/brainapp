@@ -30,6 +30,7 @@
 
    {% if modal_login %}
     {% include 'BrainappUserBundle:Security:login_modal.html.twig' with { 'csrf_token': csrf_token_login } %}
+    {% include 'BrainappUserBundle:Resetting:request_modal.html.twig' %}
    {% else %}
 	{# SECTION LOGIN #}
 	<section id="login">
