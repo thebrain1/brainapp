@@ -4,10 +4,16 @@ $(document).ready(function() {
 		$('#error').slideUp(300);
 	});
 	
+	$('#resettingModal').on('shown.bs.modal', function () {
+		$('#loginModal').modal('hide');
+	})
+
 	$('#loginModal').on('shown.bs.modal', function () {
+		$('#resettingModal').modal('hide');
 	    $('#username').focus();
 	})
 	
+	/* HANDLE AJAX LOGIN */
 	$('.modal #submit').click(function(e) {
 		e.preventDefault();
 		var $form = $("#form-login");
