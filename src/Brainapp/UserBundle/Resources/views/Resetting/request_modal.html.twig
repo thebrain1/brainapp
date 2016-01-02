@@ -1,0 +1,46 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{# <form id="box-reset" action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="box animated tile active">#}
+{# 	<h2 class="box-title">Passwort zurücksetzen</h2>#}
+{# 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>#}
+{#     {% if invalid_username is defined %}#}
+{# 		<p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>#}
+{# 	{% endif %}#}
+{#     <input type="email" placeholder="E-Mail Adresse" class="login-control" name="email" required="required" />#}
+{#     <input type="text" placeholder="Benutzername" class="login-control" name="username" required="required" />#}
+{# 	<button class="btn btn-sm m-r-5">{{ 'resetting.reset.submit'|trans }}</button>#}
+{# 	<small><a href="{{ path('login') }}">Account bereits vorhanden?</a></small>#}
+{# </form>#}
+
+
+<div class="modal fade" id="resettingModal" tabindex="-1" role="dialog" aria-labelledby="resettingModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="resettingModalLabel">Passwort zurücksetzen</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert" id="error" style="display: none;">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Es ist ein Fehler aufgetreten!</strong> <span id="message"></span>
+        </div>
+        
+        <form id="form-resetting" action="{{ path("fos_user_resetting_send_email") }}" method="post" novalidate="novalidate">
+    		<div class="form-group">
+    			<label for="email" class="control-label">E-Mail Adresse</label>
+    			<input type="text" class="form-control" id="email" name="email" placeholder="E-Mail-Adresse" title="Geben Sie Ihre E-Mail Adresse an" required="required">
+    			<span class="help-block"></span>
+    		</div>
+    		<div class="form-group">
+    			<label for="username" class="control-label">Benutzername</label>
+    			<input type="text" class="form-control" id="username" name="username" {% if last_username is defined %}value="{{ last_username }}" {% endif %}placeholder="Benutzername" title="Geben Sie Ihren Benutzernamen an" required="required">
+    			<span class="help-block"></span>
+    		</div>
+    		<button type="submit" id="submit" name="submit" class="btn btn-success btn-lg btn-block">Passwort zurücksetzen</button>
+    		<a href="" type="button" data-toggle="modal" data-target="#loginModal" class="btn btn-default btn-block">Account bereits vorhanden?</a>
+    	</form>
+      </div>
+    </div>
+  </div>
+</div>
