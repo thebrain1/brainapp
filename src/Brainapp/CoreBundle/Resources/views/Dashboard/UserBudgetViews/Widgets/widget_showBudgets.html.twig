@@ -24,7 +24,7 @@
                         </tr>
                         <tr>
                             <td>Restbetrag</td>
-                            <td align="right"> <data class="data-currency">{{ budget.budgetVorlage.budgetValue}}</data> -  <data class="data-currency">{{ budget.budgetVerbraucht }}</data> = <data class="data-currency data-balance">{{ budget.restbetrag }}</data></td>
+                            <td align="right"> <data class="data-currency">{{ budget.budgetVorlage.budgetValue}}</data> {% if budget.budgetVerbraucht > 0 %}+{% else %}-{% endif %}  <data class="data-currency">{{ budget.budgetVerbraucht }}</data> = <data class="data-currency data-balance">{{ budget.restbetrag }}</data></td>
                         </tr>
                         <tr>
                         	<td>Kategorie</td>

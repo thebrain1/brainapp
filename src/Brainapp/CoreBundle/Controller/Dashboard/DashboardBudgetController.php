@@ -123,22 +123,26 @@ class DashboardBudgetController extends AbstractController
 					$budgetInstanceBeforeTriggerDate = $budgetVorlage->getBudgetInstance($zeitraumVonBeforeTriggerDate, $zeitraumBisBeforeTriggerDate);
 					
 					$localNaechsterMonat = "";
-						
+					
+					//<Chris Schneider, Bugfix vom 02.01.2016>
+					
 					//Der Monat vor dem Januar ist Dezember (12 - 1)...
 					if($month == 12)
 					{
 						$localNaechsterMonat = $MONTHS[0]; //Wenn aktueller Monat == Dezember, dann nächster Monat=Januar
-						$localJahr = $year + 1;
+						$localJahrAfterTriggerDate = $year + 1;
 					}
 					else
 					{
 						$localNaechsterMonat = $MONTHS[$month];
+						$localJahrAfterTriggerDate = $year;
 					}
 					
 					//vom 02.12.2016 bis 01.02.2016
 					$zeitraumVonAfterTriggerDate = strtotime("2" . $MONTHS[$month-1] . " " . $year);
-					$zeitraumBisAfterTriggerDate = strtotime("1" . $localNaechsterMonat . " " . $localJahr);
+					$zeitraumBisAfterTriggerDate = strtotime("1" . $localNaechsterMonat . " " . $localJahrAfterTriggerDate);
 					$budgetInstanceAfterTriggerDate = $budgetVorlage->getBudgetInstance($zeitraumVonAfterTriggerDate, $zeitraumBisAfterTriggerDate);
+					//</Chris Schneider, Bugfix vom 02.01.2016>
 					
 					array_push($userBudgets, $budgetInstanceBeforeTriggerDate);
 					array_push($userBudgets, $budgetInstanceAfterTriggerDate);
