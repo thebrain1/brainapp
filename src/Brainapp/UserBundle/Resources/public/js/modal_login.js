@@ -34,12 +34,14 @@ $(document).ready(function() {
 				}
 				else
 					location.reload();
+				
+				$("#form-login .fa-spinner").hide();
 			},
 			error : function(data, status, object) {
 				console.log(data);
 				alert("Es ist ein unbekannter Fehler aufgetreten!")
+				$("#form-login .fa-spinner").hide();
 			}
-			$("#form-login .fa-spinner").hide();
 		});
 	});
 	/* HANDLE AJAX PASSWORT RESET */
