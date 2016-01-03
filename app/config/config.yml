@@ -143,9 +143,14 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
+    service:
+        mailer: fos_user.mailer.twig_swift
     user_class:  Brainapp\UserBundle\Entity\User
     group:
         group_class: Brainap\UserBundle\Entity\Group
     registration:
         form:
             type: brainapp_user_registration
+    from_email:
+        address:        service@brainapp.reu-network.de
+        sender_name:    Brainapp Service
