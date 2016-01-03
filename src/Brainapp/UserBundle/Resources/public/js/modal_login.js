@@ -19,6 +19,7 @@ $(document).ready(function() {
 	$('.modal #form-login #submit').click(function(e) {
 		e.preventDefault();
 		var $form = $("#form-login");
+		$("#form-login .fa-spinner").show();
 		$.ajax({
 			type : $form.attr('method'),
 			url : $form.attr('action'),
@@ -38,12 +39,14 @@ $(document).ready(function() {
 				console.log(data);
 				alert("Es ist ein unbekannter Fehler aufgetreten!")
 			}
+			$("#form-login .fa-spinner").hide();
 		});
 	});
 	/* HANDLE AJAX PASSWORT RESET */
 	$('.modal #form-resetting #submit').click(function(e) {
 		e.preventDefault();
 		var $form = $("#form-resetting");
+		$("#form-resetting .fa-spinner").show();
 		$.ajax({
 			type : $form.attr('method'),
 			url : $form.attr('action'),
@@ -62,10 +65,12 @@ $(document).ready(function() {
 					$('#resettingModal #success #message').html(data.message);
 					$('#resettingModal #success').slideDown(300);
 				}
+				$("#form-resetting .fa-spinner").hide();
 			},
 			error : function(data, status, object) {
 				console.log(data);
 				alert("Es ist ein unbekannter Fehler aufgetreten!")
+				$("#form-resetting .fa-spinner").hide();
 			}
 		});
 	});
