@@ -1,18 +1,4 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-{# <form id="box-reset" action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="box animated tile active">#}
-{# 	<h2 class="box-title">Passwort zurücksetzen</h2>#}
-{# 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>#}
-{#     {% if invalid_username is defined %}#}
-{# 		<p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>#}
-{# 	{% endif %}#}
-{#     <input type="email" placeholder="E-Mail Adresse" class="login-control" name="email" required="required" />#}
-{#     <input type="text" placeholder="Benutzername" class="login-control" name="username" required="required" />#}
-{# 	<button class="btn btn-sm m-r-5">{{ 'resetting.reset.submit'|trans }}</button>#}
-{# 	<small><a href="{{ path('login') }}">Account bereits vorhanden?</a></small>#}
-{# </form>#}
-
-
 <div class="modal fade" id="resettingModal" tabindex="-1" role="dialog" aria-labelledby="resettingModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -30,7 +16,7 @@
           <strong>Rücksetzung erfolgreich beantragt!</strong><br/><span id="message"></span>
         </div>
         
-        <form id="form-resetting" action="{{ path("fos_user_resetting_send_email") }}" method="post" novalidate="novalidate">
+        <form id="form-resetting" action="{{ path("resetting_send_email") }}" method="post" novalidate="novalidate">
     		<div class="form-group">
     			<label for="email" class="control-label">E-Mail Adresse</label>
     			<input type="text" class="form-control" id="email" name="email" placeholder="E-Mail-Adresse" title="Geben Sie Ihre E-Mail Adresse an" required="required">
