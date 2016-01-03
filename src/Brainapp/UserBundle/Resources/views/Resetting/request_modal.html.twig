@@ -26,6 +26,10 @@
           <strong>Es ist ein Fehler aufgetreten!</strong> <span id="message"></span>
         </div>
         
+         <div class="alert alert-success" role="alert" id="success" style="display: none;">
+          <strong>Rücksetzung erfolgreich beantragt!</strong><br/><span id="message"></span>
+        </div>
+        
         <form id="form-resetting" action="{{ path("fos_user_resetting_send_email") }}" method="post" novalidate="novalidate">
     		<div class="form-group">
     			<label for="email" class="control-label">E-Mail Adresse</label>
